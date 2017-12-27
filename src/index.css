@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+footer {
+  height: 2vh;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.App, .App div, .page
+{
+  min-height: 86vh
+}
+
+.page {
+  padding-bottom: 2vh;
+  width: 100%;
+}
+
+header {
+  height: 12vh;
+}
+
+header h1{
+  margin-top: 0px;
+  padding-top: 2vh;
+  margin-bottom: 2vh;
+  font-size: 4vh;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+#tumblr {
+  width: 100%;
+  border: none;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 800ms ease-in;
+}
+
+.slideleft-enter {
+  float: left;
+  margin-left: -50%;
+}
+
+.slideleft-enter.slideleft-enter-active {
+  display: inline-block;
+  width: 100%;
+  -webkit-animation: slideInLeft 0.5s forwards;
+  animation: slideInLeft 0.5s forwards;
+}
+
+.slideleft-exit {
+  left: 100%;
+}
+
+.slideleft-exit.slideleft-exit-active {
+  display: inline-block;
+  width: 100%;
+  -webkit-animation: slideOut 0.5s forwards;
+  animation: slideOut 0.5s forwards;
+}
+
+@-webkit-keyframes slideInLeft {
+  0% { margin-left: -100%; }
+  100% { margin-left: inherit; }
+}
+
+@keyframes slideInLeft {
+  0% { margin-left: -100%; }
+  100% { margin-left: inherit; }
+}
+
+@-webkit-keyframes slideOut {
+  100% { margin-right: -100%; }
+}
+
+@keyframes slideOut {
+  100% { margin-right: -100%; }
+}
