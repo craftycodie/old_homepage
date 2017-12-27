@@ -1,3 +1,12 @@
+* {
+  color: #eee;
+  background-color: #222;
+}
+
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +18,10 @@ footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+
+.App {
+  margin-left: 10px;
 }
 
 .App, .App div, .page
@@ -61,7 +74,7 @@ header h1{
 
 .slideleft-enter {
   float: left;
-  margin-left: -50%;
+  margin-left: -100%;
 }
 
 .slideleft-enter.slideleft-enter-active {
@@ -72,12 +85,13 @@ header h1{
 }
 
 .slideleft-exit {
-  left: 100%;
+  overflow-y: hidden;
 }
 
 .slideleft-exit.slideleft-exit-active {
   display: inline-block;
   width: 100%;
+  overflow-y: hidden;
   -webkit-animation: slideOut 0.5s forwards;
   animation: slideOut 0.5s forwards;
 }
@@ -98,4 +112,25 @@ header h1{
 
 @keyframes slideOut {
   100% { margin-right: -100%; }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  border: 2px solid #222 right;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
