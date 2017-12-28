@@ -1,0 +1,38 @@
+
+
+Homepage
+V2
+
+Portfolio
+- Projects
+    - Clicking project displays info in overlay form.
+    - Login and manage.
+
+Blog
+- FULL blog implementation
+    - Easy editor
+    - Image / Video / Text
+    - Embed / Upload
+    - Tags
+    - Search
+    - Archive
+    - Featured Posts
+    - Stickied Post
+
+
+About
+- CV
+- Email
+- Email contact form.
+- Social media widgets
+- GitHub
+
+
+
+
+- Navigation should slide pages
+- CSS should be compiled from SASS
+
+TODO:
+Find existing design ideas.
+Create html prototype (can probably reuse pictrest prototype)

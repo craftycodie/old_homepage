@@ -3,6 +3,18 @@
   background-color: #222;
 }
 
+/* #portfolio{
+  background-color: #f00;
+}
+
+#blog{
+  background-color: #0F0;
+}
+
+#about{
+  background-color: #00f;
+} */
+
 body {
   margin: 0;
   padding: 0;
@@ -16,9 +28,13 @@ footer {
   width: 100%;
 }
 
+body, .App, .app div{
+  overflow-y: hidden;
+}
+
 .App div, .page
 {
-  height: 86vh;
+  height: 84vh;
 }
 
 .page {
@@ -28,14 +44,21 @@ footer {
 }
 
 header {
-  height: 12vh;
+  height: 14vh;
 }
 
 header h1{
   margin-top: 0px;
   padding-top: 2vh;
-  margin-bottom: 2vh;
+  margin-bottom: 0vh;
   font-size: 4vh;
+}
+
+header small{
+  display: block;
+  margin-top: 1vh;
+  padding-bottom: 1vh;
+  font-size: 1.7vh;
 }
 
 #root {
@@ -74,8 +97,8 @@ header h1{
 .slideright-enter.slideright-enter-active {
   display: inline-block;
   width: 100%;
-  -webkit-animation: slideInRight 0.5s forwards;
-  animation: slideInRight 0.5s forwards;
+  -webkit-animation: slideInRight 0.5s forwards ease-in-out;
+  animation: slideInRight 0.5s forwards ease-in-out;
 }
 
 .slideright-exit {
@@ -86,26 +109,28 @@ header h1{
   display: inline-block;
   width: 100%;
   overflow-y: hidden;
-  -webkit-animation: slideOutRight 0.5s forwards;
-  animation: slideOutRight 0.5s forwards;
+  -webkit-animation: slideOutRight 0.5s forwards ease-in-out;
+  animation: slideOutRight 0.5s forwards ease-in-out;
 }
 
 @-webkit-keyframes slideInRight {
-  0% { margin-left: -100%; }
-  100% { margin-left: inherit; }
+  0% { margin-left: -100%; opacity: 0; }
+  100% { margin-left: inherit; opacity: 1; }
 }
 
 @keyframes slideInRight {
-  0% { margin-left: -100%; }
-  100% { margin-left: inherit; }
+  0% { margin-left: -100%; opacity: 0; }
+  100% { margin-left: inherit; opacity: 1; }
 }
 
 @-webkit-keyframes slideOutRight {
-  100% { margin-right: -100%; }
+  0% { opacity: 1;}
+  100% { margin-right: -100%; opacity: 0; }
 }
 
 @keyframes slideOutRight {
-  100% { margin-right: -100%; }
+  0% { opacity: 1;}
+  100% { margin-right: -100%; opacity: 0; }
 }
 
 .slideleft-enter {
@@ -116,8 +141,8 @@ header h1{
 .slideleft-enter.slideleft-enter-active {
   display: inline-block;
   width: 100%;
-  -webkit-animation: slideInLeft 0.5s forwards;
-  animation: slideInLeft 0.5s forwards;
+  -webkit-animation: slideInLeft 0.5s forwards ease-in-out;
+  animation: slideInLeft 0.5s forwards ease-in-out;
 }
 
 .slideleft-exit {
@@ -128,26 +153,28 @@ header h1{
   display: inline-block;
   width: 100%;
   overflow-y: hidden;
-  -webkit-animation: slideOutLeft 0.5s forwards;
-  animation: slideOutLeft 0.5s forwards;
+  -webkit-animation: slideOutLeft 0.5s forwards ease-in-out;
+  animation: slideOutLeft 0.5s forwards ease-in-out;
 }
 
 @-webkit-keyframes slideInLeft {
-  0% { margin-right: -100%; }
-  100% { margin-right: inherit; }
+  0% { margin-right: -100%; opacity: 1; }
+  100% { margin-right: inherit; opacity: 0; }
 }
 
 @keyframes slideInLeft {
-  0% { margin-right: -100%; }
-  100% { margin-right: inherit; }
+  0% { margin-right: -100%; opacity: 0; }
+  100% { margin-right: inherit; opacity: 1; }
 }
 
 @-webkit-keyframes slideOutLeft {
-  100% { margin-left: -100%; }
+  0% { opacity: 1;}
+  100% { margin-left: -100%; opacity: 0; }
 }
 
 @keyframes slideOutLeft {
-  100% { margin-left: -100%; }
+  0% { opacity: 1;}
+  100% { margin-left: -100%; opacity: 0; }
 }
 
 /* width */
@@ -171,7 +198,7 @@ header h1{
   background: #555; 
 }
 
-.not-active {
+/* .not-active {
   pointer-events: none;
   cursor: default;
-}
+} */
