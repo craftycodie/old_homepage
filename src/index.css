@@ -170,3 +170,8 @@ header h1{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}

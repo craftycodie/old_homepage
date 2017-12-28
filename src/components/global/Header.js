@@ -9,6 +9,7 @@ export default class Header extends React.Component {
             <h1>
                 Alex Newark
             </h1>
+            <small>Software Engineer</small>
             <Navigation />
         </header>
       );

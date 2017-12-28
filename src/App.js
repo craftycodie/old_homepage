@@ -36,9 +36,30 @@ function getAnimationClassName(location)
   return animationName;
 }
 
+//This returns a childFactory to provide to TransitionGroup
+const childFactoryCreator = (classNames) => (
+  (child) => (
+    React.cloneElement(child, {
+      classNames
+    })
+  )
+);
+
+
 const App = withRouter(({ location }) => (
   <div className="App">
     <Header />
+    <TransitionGroup childFactory={childFactoryCreator(getAnimationClassName(location))}>
+      <CSSTransition key={location.pathname} classNames={getAnimationClassName(location)} timeout={500}>
+      <Switch location={location}>
+        <Route exact path="/" component={Portfolio} />
+        <Route exact path="/blog" component={Blog} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/portfolio" component={Portfolio} />
+        </Switch>
+      </CSSTransition>
+    </TransitionGroup>
+{/* 
     <TransitionGroup>
       <CSSTransition
         key={location.pathname}
@@ -52,7 +73,7 @@ const App = withRouter(({ location }) => (
         <Route exact path="/portfolio" component={Portfolio} />
         </Switch>
       </CSSTransition>
-    </TransitionGroup>
+    </TransitionGroup> */}
     <Footer />
   </div>
 )) 
