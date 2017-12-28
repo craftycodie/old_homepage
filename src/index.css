@@ -3,10 +3,6 @@
   background-color: #222;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -20,18 +16,15 @@ footer {
   width: 100%;
 }
 
-.App {
-  margin-left: 10px;
-}
-
-.App, .App div, .page
+.App div, .page
 {
-  min-height: 86vh
+  height: 86vh;
 }
 
 .page {
   padding-bottom: 2vh;
   width: 100%;
+  overflow-y: overlay;
 }
 
 header {
@@ -47,6 +40,7 @@ header h1{
 
 #root {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #tumblr {
@@ -72,9 +66,51 @@ header h1{
   transition: opacity 800ms ease-in;
 }
 
-.slideleft-enter {
+.slideright-enter {
   float: left;
   margin-left: -100%;
+}
+
+.slideright-enter.slideright-enter-active {
+  display: inline-block;
+  width: 100%;
+  -webkit-animation: slideInRight 0.5s forwards;
+  animation: slideInRight 0.5s forwards;
+}
+
+.slideright-exit {
+  overflow-y: hidden;
+}
+
+.slideright-exit.slideright-exit-active {
+  display: inline-block;
+  width: 100%;
+  overflow-y: hidden;
+  -webkit-animation: slideOutRight 0.5s forwards;
+  animation: slideOutRight 0.5s forwards;
+}
+
+@-webkit-keyframes slideInRight {
+  0% { margin-left: -100%; }
+  100% { margin-left: inherit; }
+}
+
+@keyframes slideInRight {
+  0% { margin-left: -100%; }
+  100% { margin-left: inherit; }
+}
+
+@-webkit-keyframes slideOutRight {
+  100% { margin-right: -100%; }
+}
+
+@keyframes slideOutRight {
+  100% { margin-right: -100%; }
+}
+
+.slideleft-enter {
+  float: right;
+  margin-right: -100%;
 }
 
 .slideleft-enter.slideleft-enter-active {
@@ -92,26 +128,26 @@ header h1{
   display: inline-block;
   width: 100%;
   overflow-y: hidden;
-  -webkit-animation: slideOut 0.5s forwards;
-  animation: slideOut 0.5s forwards;
+  -webkit-animation: slideOutLeft 0.5s forwards;
+  animation: slideOutLeft 0.5s forwards;
 }
 
 @-webkit-keyframes slideInLeft {
-  0% { margin-left: -100%; }
-  100% { margin-left: inherit; }
+  0% { margin-right: -100%; }
+  100% { margin-right: inherit; }
 }
 
 @keyframes slideInLeft {
-  0% { margin-left: -100%; }
-  100% { margin-left: inherit; }
+  0% { margin-right: -100%; }
+  100% { margin-right: inherit; }
 }
 
-@-webkit-keyframes slideOut {
-  100% { margin-right: -100%; }
+@-webkit-keyframes slideOutLeft {
+  100% { margin-left: -100%; }
 }
 
-@keyframes slideOut {
-  100% { margin-right: -100%; }
+@keyframes slideOutLeft {
+  100% { margin-left: -100%; }
 }
 
 /* width */

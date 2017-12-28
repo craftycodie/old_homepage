@@ -12,18 +12,37 @@ import Portfolio from "./components/pages/Portfolio";
 import Blog from "./components/pages/Blog";
 import About from "./components/pages/About";
 
-const firstChild = props => {
-  const childrenArray = React.Children.toArray(props.children);
-  return childrenArray[0] || null;
-};
+var navigationOrder = {};
+navigationOrder["/"] = 0;
+navigationOrder["/blog"] = 1;
+navigationOrder["/about"] = 2;
+
+var prevLocation = null;
+function getAnimationClassName(location)
+{
+  //console.log(prevLocation);
+  //console.log(location.pathname);
+
+  var prevOrder = navigationOrder[prevLocation];
+  var newOrder = navigationOrder[location.pathname];
+  
+  var animationName = "slideleft";
+
+  if(newOrder < prevOrder)
+    animationName = "slideright";
+
+  prevLocation = location.pathname;
+  console.log(animationName);
+  return animationName;
+}
 
 const App = withRouter(({ location }) => (
   <div className="App">
     <Header />
     <TransitionGroup>
       <CSSTransition
-        key={location.key}
-        classNames='slideleft'
+        key={location.pathname}
+        classNames={getAnimationClassName(location)}
         timeout={500}
       >
         <Switch location={location}>

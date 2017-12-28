@@ -2,6 +2,6 @@ import React from "react"
 
 export default class Footer extends React.Component {
   render() {
-    return <footer>This is the Footer.</footer>;
+    return <footer>© Alex Newark 2017</footer>;
   }
 }
