@@ -32,14 +32,10 @@ body, .App, .app div{
   overflow-y: hidden;
 }
 
-.App div, .page
-{
-  height: 84vh;
-}
-
 .page {
   padding-bottom: 2vh;
   width: 100%;
+  height: 84vh;
   overflow-y: overlay;
 }
 
@@ -202,3 +198,37 @@ header small{
   pointer-events: none;
   cursor: default;
 } */
+
+#portfolio .col-md-8{
+  text-align: left;
+}
+
+#portfolio .col-md-4
+{
+  background-image: url('https://i.imgur.com/sVWQUiT.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+#portfolio .col-md-12 *{
+  background-color: #333;
+}
+
+#portfolio .col-md-12 .row{
+  height: 100%;
+}
+
+
+#portfolio .col-md-12{
+  height: 200px;
+  background-color: #333;
+}
+#portfolio img{
+  height: 100%;
+  width: auto;
+}
+
+#portfolio .col-md-12 .row .col-md-6
+{
+  height: 100px;
+}
