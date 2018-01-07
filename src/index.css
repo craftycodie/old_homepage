@@ -1,17 +1,19 @@
-* {
+div {
   color: #eee;
   background-color: #222;
 }
 
 /* #portfolio{
   background-color: #f00;
-}
+} */
 
-#blog{
-  background-color: #0F0;
-}
 
-#about{
+/* #blog, #blog *{
+  background-color: #ddd;
+  color: #111;
+} */
+
+/* #about{
   background-color: #00f;
 } */
 
