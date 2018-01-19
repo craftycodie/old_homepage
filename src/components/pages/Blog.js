@@ -8,6 +8,31 @@ import BlogPost from "./blog/BlogPost";
 
 import { URLSearchParams } from 'url';
 
+let loadedPosts = [];
+let loadedAllPosts = true;
+
+export function preloadPosts () {
+  let count = 20;
+
+  request
+  .get('http://localhost:8080/api/blog/posts/recent')
+  .query({ at: 0, count: count }) // query string
+  .set('Accept', 'application/json')
+  .set("Cache-Control", "no-cache")
+  .end((err, res) => {
+    console.log(JSON.parse(res.text));
+    
+    JSON.parse(res.text).data.forEach(blogPost => {
+      loadedPosts.push(<BlogPost key={blogPost._id} blogPost={blogPost}/>)
+    });
+
+    if(JSON.parse(res.text).data.count < count)
+    {
+      loadedAllPosts = false;
+    }
+  });
+}
+
 export default class Blog extends React.Component {
 
   constructor () {
@@ -16,7 +41,7 @@ export default class Blog extends React.Component {
     //var initialPosts = loadPosts();
 
     this.state = {
-      postElements: [],
+      postElements: loadedPosts,
       hasMore: true
     };
     this.loadPosts = this.loadPosts.bind(this);
@@ -44,12 +69,13 @@ export default class Blog extends React.Component {
 
       if(JSON.parse(res.text).data.count < count)
       {
-        this.setState({hasMore: false});
+        loadedAllPosts = false;
       }
     });
 
     setTimeout(() => {
       this.setState({postElements: this.state.postElements.concat(morePosts)});
+      loadedPosts = this.state.postElements;
     }, 500);
   }
   
@@ -68,7 +94,7 @@ render() {
     id="blog"
     className="page"
     next={this.loadPosts}
-    hasMore={this.state.hasMore}
+    hasMore={loadedAllPosts}
     loader={<h1>Loading...</h1>}
     scrollableTargetID="blog"
     >

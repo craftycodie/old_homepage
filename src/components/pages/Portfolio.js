@@ -2,7 +2,7 @@ import React from "react"
 
 export default class Portfolio extends React.Component {
   render() {
-		return <h2>Portfolio Page</h2> //(
+		return <div className="page" id="portfolio"><h2>Portfolio Page</h2></div> //(
 	// 	<div className="page" id="portfolio">
 	// 		<div class="row">
 	// 			<div class="col-md-12">
