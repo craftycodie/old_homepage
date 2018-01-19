@@ -49,9 +49,8 @@ const childFactoryCreator = (classNames) => (
 const App = withRouter(({ location }) => (
   <div className="App">
     <Header />
-    <TransitionGroup childFactory={childFactoryCreator(getAnimationClassName(location))}>
-      <CSSTransition key={location.key} classNames={getAnimationClassName(location)} timeout={500}>
-      <div id="pageContainer" className="page">
+    <TransitionGroup id="pageContainer" childFactory={childFactoryCreator(getAnimationClassName(location))}>
+      <CSSTransition key={location.key} timeout={500}>
       <Switch location={location}>
         <Route exact path="/" component={Portfolio} />
         <Route exact path="/blog" component={Blog} />
@@ -59,7 +58,6 @@ const App = withRouter(({ location }) => (
         <Route exact path="/portfolio" component={Portfolio} />
         <Route path="*" component={Error404} />
         </Switch>
-        </div>
       </CSSTransition>
     </TransitionGroup>
     <Footer />
