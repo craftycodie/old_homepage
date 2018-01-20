@@ -11,7 +11,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Skirmish</h4>
-								<p>Codename Raider. An online shooter.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-secondary">C++</span> <span class="badge badge-secondary">NodeJS</span> <span class="badge badge-secondary">JavaScript</span></p>
+								<p>Codename Raider.<br/>An online shooter.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-danger">C++</span> <span class="badge badge-secondary">NodeJS</span> <span class="badge badge-secondary">JavaScript</span> <span class="badge badge-secondary">HLSL</span></p>
 							</div>
 							<div class="right">
 								<img src="https://imgur.com/0KllZrM.png"/>
@@ -31,7 +31,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Marathon</h4>
-								<p>Minecraft Server Management Tool<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">VB</span></p>
+								<p>Minecraft Server Management Tool<br/>My first solution!<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">VB</span></p>
 							</div>
 							<div class="right">
 								<img src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
@@ -70,6 +70,15 @@ export default class Portfolio extends React.Component {
 					<div class="row">
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
+								<h4>Untitled</h4>
+								<p>Creating patches to explore an unreleased Unity3D game.<br/><span class="badge badge-danger">.NET CIL</span> <span class="badge badge-danger">C#</span></p>
+							</div>
+							<div class="right">
+								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
+							</div>
+						</div>
+						<div class="col-md-6 portfolioProject">
+							<div class="left">
 								<h4>Many More</h4>
 								<p>Many research projects, game mods and other misc projects.<br/><span class="badge badge-danger">LUA</span></p>
 							</div>
@@ -85,19 +94,28 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Undisclosed</h4>
-								<p>Multiplayer FPS available on PC.<br/>Team of ~25 Developers.<br/><span class="badge badge-danger">C++</span> <span class="badge badge-danger">x86 Assembly</span></p>
+								<p>Multiplayer FPS available on PC.<br/>Team of ~25 Developers.<br/><span class="badge badge-danger">C++</span> <span class="badge badge-danger">x86 Assembly</span> <span class="badge badge-secondary">JavaScript</span></p>
 							</div>
 							<div class="right">
-								<img src="https://vignette.wikia.nocookie.net/halo/images/c/c2/Halo_Online_Logo.png/revision/latest?cb=20150325182428"/>
+								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h3>'Supernova'</h3>
-								<p>Halo themed solo and multiplayer PC game.<br/>Pre-Alpha.<br/><span class="badge badge-danger">C#</span></p>
+								<p>Halo themed solo and multiplayer PC game.<br/>Team of ~15 Developers, Pre-Alpha.<br/><span class="badge badge-danger">C#</span></p>
 							</div>
 							<div class="right">
 								<img src="https://media.discordapp.net/attachments/324967267483779072/404097123236315136/SupernovaSmallwShadow.png?width=1124&height=1036"/>
+							</div>
+						</div>
+						<div class="col-md-6 portfolioProject">
+							<div class="left">
+								<h4>Undisclosed</h4>
+								<p>Reasearch Project.<br/>Team of ~10 Developers.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">x86 Assembly</span> <span class="badge badge-secondary">Research</span> <span class="badge badge-secondary">C+</span></p>
+							</div>
+							<div class="right">
+								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
 					</div>
@@ -108,7 +126,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Automatic Data Processing (ADP)</h4>
-							<p>Software Development Intern<br/>Peterborough, 2016<br/><span class="badge badge-danger">Agile Scrum</span> <span class="badge badge-danger">JavaScript</span></p>
+							<p>Software Development Intern<br/>Peterborough, 2016<br/><span class="badge badge-danger">Agile Scrum</span> <span class="badge badge-danger">JavaScript</span> <span class="badge badge-danger">Selenium</span> <span class="badge badge-secondary">NodeJS</span></p>
 							</div>
 							<div class="right">
 								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Automatic_Data_Processing_%28logo%29.svg/1280px-Automatic_Data_Processing_%28logo%29.svg.png"/>
@@ -131,7 +149,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>University of East Anglia</h4>
-								<p>Masters in Computing Sciences<br/>Norwich, 2017 (Ongoing)<br/><span class="badge badge-danger">Python</span> <span class="badge badge-danger">Java</span></p>
+								<p>Masters in Computing Sciences<br/>Norwich, 2017 (Ongoing)<br/><span class="badge badge-danger">Python</span> <span class="badge badge-danger">Java</span> <span class="badge badge-secondary">JavaScript</span></p>
 							</div>
 							<div class="right">
 								<img src="https://www.uea.ac.uk/documents/2654296/0/UEA_NEW_BRAND_Magenta.png/b14edc4b-c4ca-4197-bee9-7e3a562027ca?t=1455793092763"/>
@@ -140,7 +158,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h3>Peterborough Regional College</h3>
-								<p>Software Development<br/>Level 3 BTEC Extended Diploma (D*D*D*), 2015 - 2017<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">PHP</span> <span class="badge badge-secondary">Python</span></p>
+								<p>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">PHP</span> <span class="badge badge-danger">C</span> <span class="badge badge-secondary">Python</span> <span class="badge badge-secondary">C++</span> <span class="badge badge-secondary">Assembly</span></p>
 							</div>
 							<div class="right">
 								<img src="https://www.studenthut.com/sites/default/files/styles/drudesk_profile/public/university_logo%E2%80%8E_folder_158?itok=lNBX1Oi8"/>
