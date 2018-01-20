@@ -60,7 +60,7 @@ const App = withRouter(({ location }) => (
         </Switch>
       </CSSTransition>
     </TransitionGroup>
-    <Footer />
+    
   </div>
 ))
 
