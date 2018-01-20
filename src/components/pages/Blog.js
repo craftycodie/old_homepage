@@ -4,11 +4,11 @@ import InfiniteScroll from '../../util/react-infinite-scroll-component/app/';
 import ReactDOM from 'react-dom';
 
 
-import BlogPost from "./blog/BlogPost";
+import BlogPostPreview from "./blog/BlogPostPreview";
 
 import { URLSearchParams } from 'url';
 
-let loadedPosts = [];
+export let loadedPosts = [];
 let loadedAllPosts = false;
 
 export function preloadPosts () {
@@ -23,7 +23,7 @@ export function preloadPosts () {
     console.log(JSON.parse(res.text));
     
     JSON.parse(res.text).data.forEach(blogPost => {
-      loadedPosts.push(<BlogPost key={blogPost._id} blogPost={blogPost}/>)
+      loadedPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
     });
 
     if(typeof(JSON.parse(res.text).data.length) == "undefined" || JSON.parse(res.text).data.length < count)
@@ -67,7 +67,7 @@ export default class Blog extends React.Component {
       console.log(JSON.parse(res.text));
       
       JSON.parse(res.text).data.forEach(blogPost => {
-        morePosts.push(<BlogPost key={blogPost._id} blogPost={blogPost}/>)
+        morePosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
       });
 
       if(typeof(JSON.parse(res.text).data.length) == "undefined" || JSON.parse(res.text).data.length < count)

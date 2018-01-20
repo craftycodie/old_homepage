@@ -44,7 +44,18 @@ footer {
   padding-right: 5px;
 }
 
-.blogPost{
+#blogPost{
+  max-width: 70vh;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: left;
+}
+
+#blogPost h3{
+  width: 100%;
+}
+
+.blogPostPreview{
   text-align: left;
 }
 
@@ -321,4 +332,30 @@ h2 {
 
 ul, li {
   text-align: left;
+}
+
+.readMore {
+  color: white;
+  background-color: #dc3545;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+
+.blogPostPreview h3 {
+  width: 100%;
+}
+
+a, .failedLoad span{
+  color: #dc3545;
+}
+
+.failedLoad span:hover{
+  color: #0056b3;
+  text-decoration: underline;
+  cursor: pointer;
 }

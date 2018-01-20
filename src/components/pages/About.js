@@ -16,6 +16,7 @@ export default class About extends React.Component {
                 <li>Music Lover</li>
                 <li>🌈</li>
                 <li>Languages and skill ratings with stars!</li>
+                <li>YouTube Link</li>
               </ul>
             </div>
             <div class="col-md-6">
