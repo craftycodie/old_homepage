@@ -30,7 +30,7 @@ About
 
 
 
-- Navigation should slide pages
+- Navigation should slide pages ✓
 - CSS should be compiled from SASS
 
 TODO:

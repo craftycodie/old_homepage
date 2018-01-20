@@ -9,7 +9,7 @@ import BlogPost from "./blog/BlogPost";
 import { URLSearchParams } from 'url';
 
 let loadedPosts = [];
-let loadedAllPosts = true;
+let loadedAllPosts = false;
 
 export function preloadPosts () {
   let count = 20;
@@ -26,10 +26,13 @@ export function preloadPosts () {
       loadedPosts.push(<BlogPost key={blogPost._id} blogPost={blogPost}/>)
     });
 
-    if(JSON.parse(res.text).data.count < count)
+    if(typeof(JSON.parse(res.text).data.length) == "undefined" || JSON.parse(res.text).data.length < count)
     {
-      loadedAllPosts = false;
+      loadedAllPosts = true;
     }
+
+    console.log(typeof(JSON.parse(res.text).data.length));
+    console.log(loadedAllPosts);
   });
 }
 
@@ -67,10 +70,14 @@ export default class Blog extends React.Component {
         morePosts.push(<BlogPost key={blogPost._id} blogPost={blogPost}/>)
       });
 
-      if(JSON.parse(res.text).data.count < count)
+      if(typeof(JSON.parse(res.text).data.length) == "undefined" || JSON.parse(res.text).data.length < count)
       {
-        loadedAllPosts = false;
+        loadedAllPosts = true;
       }
+
+      console.log(typeof(JSON.parse(res.text).data.length));
+      console.log(loadedAllPosts);
+
     });
 
     setTimeout(() => {
@@ -89,17 +96,19 @@ export default class Blog extends React.Component {
 render() {
 
   return (
-  <div id="blog" className="page" ref={(ref) => (this.blogContainer = ref)}>
+  <div id="blogScrollableTarget" class="page">
+    <div id="blog" class="centerMargins">
     <InfiniteScroll 
     id="blog"
     className="page"
     next={this.loadPosts}
-    hasMore={loadedAllPosts}
+    hasMore={!loadedAllPosts}
     loader={<h1>Loading...</h1>}
-    scrollableTargetID="blog"
+    scrollableTargetID="blogScrollableTarget"
     >
       {this.state.postElements}
     </InfiniteScroll>
+  </div>
   </div>
   )};
 }
