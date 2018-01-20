@@ -238,6 +238,10 @@ header {
   padding-right: 5px;
 }
 
+header p {
+  font-size: 2.13vh;
+}
+
 header img{
   margin-top: 1vh;
   height: 13vh;
@@ -277,6 +281,15 @@ nav {
   border: 10px solid white;
   background-color: #f8f8f8
 }
+
+.portfolioProject p {
+  margin-bottom: 0;
+}
+
+.portfolioProject a p {
+  margin-top: 5px;
+}
+
 .portfolioProject .left {
   width: 70%;
   height: 100%;
@@ -371,4 +384,17 @@ a, .failedLoad span{
 .blogPreviewBody {
   max-height: 35vh;
   overflow: hidden;
+}
+
+.blogPostPreview.sticky {
+  border: 1px solid rgba(0,0,0,.1);
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.blogPostPreview.sticky::before {
+  content: "Sticky Post";
+  font-weight: bold;
+  font-size: 0.9em;
+  float: right;
 }

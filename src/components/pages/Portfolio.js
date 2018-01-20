@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 
 export default class Portfolio extends React.Component {
   render() {
@@ -11,7 +12,8 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Skirmish</h4>
-								<p>Codename Raider.<br/>An online shooter.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-danger">C++</span> <span class="badge badge-secondary">NodeJS</span> <span class="badge badge-secondary">JavaScript</span> <span class="badge badge-secondary">HLSL</span></p>
+								<p>Codename Raider.<br/>An online shooter.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-danger">C++</span> <span class="badge badge-secondary">NodeJS</span> <span class="badge badge-secondary">JavaScript</span> <span class="badge badge-secondary">HLSL</span><br/>
+								<Link to="/blog/post/5a639374a426690e2f90056a"><p>Read Blog Post >></p></Link></p>
 							</div>
 							<div class="right">
 								<img src="https://imgur.com/0KllZrM.png"/>

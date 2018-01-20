@@ -9,10 +9,14 @@ import BlogPostPreview from "./blog/BlogPostPreview";
 import { URLSearchParams } from 'url';
 
 export let loadedPosts = [];
+export let loadedStickyPosts = [];
+let loadedAllStickyPosts = false;
 let loadedAllPosts = false;
 
 export function preloadPosts () {
   let count = 20;
+
+  loadStickyPosts();
 
   request
   .get('http://localhost:8080/api/blog/posts/recent')
@@ -30,10 +34,27 @@ export function preloadPosts () {
     {
       loadedAllPosts = true;
     }
-
-    console.log(typeof(JSON.parse(res.text).data.length));
-    console.log(loadedAllPosts);
   });
+}
+
+function loadStickyPosts()
+{
+  if(loadedAllStickyPosts)
+    return;
+
+  request
+  .get('http://localhost:8080/api/blog/posts/sticky')
+  .set('Accept', 'application/json')
+  .set("Cache-Control", "no-cache")
+  .end((err, res) => {
+    console.log(JSON.parse(res.text));
+    
+    JSON.parse(res.text).data.forEach(blogPost => {
+      loadedStickyPosts.push(<BlogPostPreview sticky={true} key={blogPost._id} blogPost={blogPost}/>)
+    });
+  });
+
+  loadedAllStickyPosts = true;
 }
 
 export default class Blog extends React.Component {
@@ -44,6 +65,7 @@ export default class Blog extends React.Component {
     //var initialPosts = loadPosts();
 
     this.state = {
+      stickyPostElements: loadedStickyPosts,
       postElements: loadedPosts,
       hasMore: true
     };
@@ -57,6 +79,8 @@ export default class Blog extends React.Component {
     let count = 20;
     let morePosts = [];
     let at = this.state.postElements.length;
+
+    loadStickyPosts();
 
     request
     .get('http://localhost:8080/api/blog/posts/recent')
@@ -106,7 +130,7 @@ render() {
     loader={<h1>Loading...</h1>}
     scrollableTargetID="blogScrollableTarget"
     >
-      {this.state.postElements}
+      {this.state.stickyPostElements}{this.state.postElements}
     </InfiniteScroll>
   </div>
   </div>
