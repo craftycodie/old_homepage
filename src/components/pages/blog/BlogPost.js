@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from 'react-router-dom';
 import { loadedPosts } from "../Blog"
 import request from "superagent"
+import showdown from "showdown";
+import ReactHtmlParser from 'react-html-parser';
 
 export default class BlogPostPreview extends React.Component {
   
@@ -50,6 +52,8 @@ export default class BlogPostPreview extends React.Component {
 
   render() {
 
+    var converter = new showdown.Converter();
+
     if(this.state.blogPost == null)
     {
       if(this.state.errorCount >= 3)
@@ -84,8 +88,8 @@ export default class BlogPostPreview extends React.Component {
 
     return (    <div class="page">
     <div id="blogPost" class="centerMargins">
-    <h3 class="left">{this.state.blogPost.title}</h3>
-    <p>{this.state.blogPost.body}</p>
+    <h3 class="">{this.state.blogPost.title}</h3>
+    {ReactHtmlParser(converter.makeHtml(this.state.blogPost.body))}
   </div></div>);
   }
 }

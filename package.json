@@ -7,6 +7,7 @@
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
+    "react-html-parser": "^2.0.2",
     "react-infinite": "^0.12.1",
     "react-infinite-scroll-component": "^3.0.0",
     "react-router": "^4.2.0",
@@ -14,6 +15,7 @@
     "react-scripts": "1.0.17",
     "react-transition-group": "^2.2.1",
     "react-transition-group-plus": "^0.5.2",
+    "showdown": "^1.8.6",
     "superagent": "^3.8.2"
   },
   "scripts": {

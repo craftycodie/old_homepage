@@ -359,3 +359,16 @@ a, .failedLoad span{
   text-decoration: underline;
   cursor: pointer;
 }
+
+#blogPost img, .blogPostPreview img {
+  width: 100%;
+}
+
+.blogPostPreview {
+  margin-bottom: 20px;
+}
+
+.blogPreviewBody {
+  max-height: 35vh;
+  overflow: hidden;
+}

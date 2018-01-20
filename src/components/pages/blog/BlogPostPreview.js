@@ -1,11 +1,15 @@
-import React from "react"
+import React from "react";
 import { Link } from 'react-router-dom';
+import showdown from "showdown";
+import ReactHtmlParser from 'react-html-parser';
 
 export default class blogPostPreview extends React.Component {
   render() {
+    var converter = new showdown.Converter();
     return (<div className="blogPostPreview">
-    <h3 class="left">{this.props.blogPost.title}</h3>
-    <p>{this.props.blogPost.body}... <Link to={"blog/post/" + this.props.blogPost._id}>Read More >></Link></p>
+    <h3 class="">{this.props.blogPost.title}</h3>
+    <div class="blogPreviewBody">
+    {ReactHtmlParser(converter.makeHtml(this.props.blogPost.body.substring(0,500) + "..."))} </div><Link to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
   </div>);
   }
 }

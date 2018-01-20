@@ -51,7 +51,7 @@ export default class Portfolio extends React.Component {
 						<div class="col-md-6 portfolioProject">
 							<div class="left">
 								<h4>Minecraft Plugins</h4>
-								<p>Minecord, Skyfall<br/><span class="badge badge-danger">Java</span> <span class="badge badge-danger">Maven</span> <span class="badge badge-secondary">Discord</span></p>
+								<p>Minecord, Skyfall<br/><span class="badge badge-danger">Java</span> <span class="badge badge-danger">Maven</span> <span class="badge badge-secondary">DiscordAPI</span></p>
 							</div>
 							<div class="right">
 								<img src="https://image.prntscr.com/image/jQxZFZo2RJ6sq9k6zldG3Q.png"/>
