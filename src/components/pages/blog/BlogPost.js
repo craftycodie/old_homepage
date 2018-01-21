@@ -4,6 +4,7 @@ import { getAllLoadedPosts } from "../Blog"
 import request from "superagent"
 import showdown from "showdown";
 import ReactHtmlParser from 'react-html-parser';
+import { apiHandler } from "../../../App";
 
 export default class BlogPostPreview extends React.Component {
   
@@ -87,7 +88,8 @@ export default class BlogPostPreview extends React.Component {
 
     return (    <div className="page">
     <div id="blogPost" className="centerMargins">
-    <h3 className="">{this.state.blogPost.title}</h3>
+    <h1 className="">{this.state.blogPost.title}</h1>
+    {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
     {ReactHtmlParser(converter.makeHtml(this.state.blogPost.body))}
   </div></div>);
   }

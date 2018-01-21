@@ -38,7 +38,7 @@ footer {
   overflow-y: overlay;
 }
 
-#blog{
+#blog, #login{
   max-width: 70vh;
   padding-left: 5px;
   padding-right: 5px;
@@ -66,6 +66,7 @@ body, .App, .app div{
 .page {
   height: 75vh;
   overflow-y: overlay;
+  padding-top: 1rem;
 }
 
 header {
@@ -347,16 +348,27 @@ ul, li {
   text-align: left;
 }
 
-.readMore {
+/* .readMore {
   color: white;
   background-color: #dc3545;
   padding-left: 10px;
   padding-right: 10px;
+  margin-top: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
   display: inline-block;
   width: 25%;
   text-align: center;
+} */
+
+.readMore, .portfolioProject a {
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.blogPostPreview .badge {
+  margin-top: 18px;
+  margin-bottom: 6px;
 }
 
 .blogPostPreview h3 {
@@ -386,15 +398,49 @@ a, .failedLoad span{
   overflow: hidden;
 }
 
-.blogPostPreview.sticky {
+/* .blogPostPreview.sticky {
   border: 1px solid rgba(0,0,0,.1);
   border-left: 0px;
   border-right: 0px;
-}
+} */
 
-.blogPostPreview.sticky::before {
+/* .blogPostPreview.sticky::before {
   content: "Sticky Post";
   font-weight: bold;
   font-size: 0.9em;
   float: right;
+} */
+
+#adminBar {
+  -webkit-box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 24px 2px rgba(0,0,0,0.75);
+
+  background-color: #ffffffdd;
+  position: fixed;
+  top: 2vh;
+  right: 2vh;
+  height: 70px;
+  width: 260px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#adminBar p {
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+#adminBar .btn{
+  margin-left: 5px;
+}
+
+form{
+  text-align: left;
+}
+#login{
+  text-align: right;
+}
+
+nav hr:last-of-type {
+  margin-bottom: 0px;
 }

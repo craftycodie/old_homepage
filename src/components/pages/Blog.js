@@ -10,6 +10,13 @@ let loadedStickyPosts = [];
 let loadedAllRecentPosts = false;
 let preloadedPosts = false;
 
+export function reloadPosts()
+{
+  loadedRecentPosts = [];
+  loadedStickyPosts = [];
+  preloadPosts();
+}
+
 export function getAllLoadedPosts()
 {
   return loadedRecentPosts.concat(loadedStickyPosts);
@@ -115,7 +122,7 @@ export default class Blog extends React.Component {
     
     setTimeout(() => {
       this.setState({postElements: loadedRecentPosts, stickyPostElements: loadedStickyPosts});
-    }, 500);
+    }, 1000);
   }
   
   refresh () {

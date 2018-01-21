@@ -6,6 +6,8 @@
     "node-fetch": "^1.7.3",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-cookie": "^2.1.2",
+    "react-cookies": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-html-parser": "^2.0.2",
     "react-infinite": "^0.12.1",

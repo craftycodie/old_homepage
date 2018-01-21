@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { withRouter } from 'react-router';
+import { CookiesProvider, withCookies } from 'react-cookie';
 import { BrowserRouter } from 'react-router-dom';
 import { preloadPosts } from "./components/pages/Blog";
 
-const RoutedApp = withRouter(App);
+const ProppedApp = withCookies(withRouter(App));
 
 preloadPosts();
-ReactDOM.render(<BrowserRouter><RoutedApp /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<CookiesProvider><BrowserRouter><ProppedApp /></BrowserRouter></CookiesProvider>, document.getElementById('root'));
 registerServiceWorker();
