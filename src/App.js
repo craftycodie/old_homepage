@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-import { Switch, BrowserRouter } from 'react-router-dom';
-import { Route, DefaultRoute, withRouter } from 'react-router';
+import { Switch } from 'react-router-dom';
+import { Route, withRouter } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import Header from "./components/global/Header";
-import Footer from "./components/global/Footer";
+//import Footer from "./components/global/Footer";
 
 import Portfolio from "./components/pages/Portfolio";
 import Blog from "./components/pages/Blog";
@@ -36,7 +36,7 @@ function getAnimationClassName(location)
 
   if(newOrder < prevOrder)
     animationName = "slideright";
-  else if(newOrder == prevOrder)
+  else if(newOrder === prevOrder)
     animationName = "";
 
   prevLocationPathname = location.pathname;

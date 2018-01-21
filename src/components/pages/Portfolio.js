@@ -4,165 +4,165 @@ import { Link } from 'react-router-dom';
 export default class Portfolio extends React.Component {
   render() {
 		return (
-		<div class="page">
-			<div class="centerMargins" id="portfolio">
-				<div class="projectSection">
+		<div className="page">
+			<div className="centerMargins" id="portfolio">
+				<div className="projectSection">
 					<h2>Personal Projects</h2>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Skirmish</h4>
-								<p>Codename Raider.<br/>An online shooter.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-danger">C++</span> <span class="badge badge-secondary">NodeJS</span> <span class="badge badge-secondary">JavaScript</span> <span class="badge badge-secondary">HLSL</span><br/>
-								<Link to="/blog/post/5a639374a426690e2f90056a"><p>Read Blog Post >></p></Link></p>
+								<p>Codename Raider.<br/>An online shooter.<br/><span className="badge badge-danger">C#</span> <span className="badge badge-danger">MongoDB</span> <span className="badge badge-danger">C++</span> <span className="badge badge-secondary">NodeJS</span> <span className="badge badge-secondary">JavaScript</span> <span className="badge badge-secondary">HLSL</span><br/>
+								<Link to="/blog/post/5a639374a426690e2f90056a">Read Blog Post >></Link></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://imgur.com/0KllZrM.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Banshee</h4>
-								<p>A Beta Minecraft modpack adding many features from newer releases.<br/><span class="badge badge-danger">Java</span> <span class="badge badge-secondary">C#</span> <span class="badge badge-secondary">NodeJS</span></p>
+								<p>A Beta Minecraft modpack adding many features from newer releases.<br/><span className="badge badge-danger">Java</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">NodeJS</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://d1u5p3l4wpay3k.cloudfront.net/minecraft_gamepedia/c/c5/Grass.png?version=1a75eca30650951561b33abec9685f50"/>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Marathon</h4>
-								<p>Minecraft Server Management Tool<br/>My first solution!<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">VB</span></p>
+								<p>Minecraft Server Management Tool<br/>My first solution!<br/><span className="badge badge-danger">C#</span> <span className="badge badge-secondary">VB</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Foundry</h4>
-								<p>A tool for editing Halo: Online maps variants.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">C++</span></p>
+								<p>A tool for editing Halo: Online maps variants.<br/><span className="badge badge-danger">C#</span> <span className="badge badge-secondary">C++</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://image.prntscr.com/image/r9wTVdpOTdiqq7CzdTU9nA.png"/>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Minecraft Plugins</h4>
-								<p>Minecord, Skyfall<br/><span class="badge badge-danger">Java</span> <span class="badge badge-danger">Maven</span> <span class="badge badge-secondary">DiscordAPI</span></p>
+								<p>Minecord, Skyfall<br/><span className="badge badge-danger">Java</span> <span className="badge badge-danger">Maven</span> <span className="badge badge-secondary">DiscordAPI</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://image.prntscr.com/image/jQxZFZo2RJ6sq9k6zldG3Q.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>This Website!</h4>
-								<p>Mongo! Express! React! Node!<br/><span class="badge badge-danger">ReactJS</span> <span class="badge badge-danger">JavaScript</span> <span class="badge badge-danger">MongoDB</span> <span class="badge badge-secondary">Express</span> <span class="badge badge-secondary">NodeJS</span></p>
+								<p>Mongo! Express! React! Node!<br/><span className="badge badge-danger">ReactJS</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">MongoDB</span> <span className="badge badge-secondary">Express</span> <span className="badge badge-secondary">NodeJS</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://pbs.twimg.com/profile_images/954254230314979328/ISO3BgXP_400x400.jpg"/>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Untitled</h4>
-								<p>Creating patches to explore an unreleased Unity3D game.<br/><span class="badge badge-danger">.NET CIL</span> <span class="badge badge-danger">C#</span></p>
+								<p>Creating patches to explore an unreleased Unity3D game.<br/><span className="badge badge-danger">.NET CIL</span> <span className="badge badge-danger">C#</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Many More</h4>
-								<p>Many research projects, game mods and other misc projects.<br/><span class="badge badge-danger">LUA</span></p>
+								<p>Many research projects, game mods and other misc projects.<br/><span className="badge badge-danger">LUA</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tab_plus.svg/2000px-Tab_plus.svg.png"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="projectSection">
+				<div className="projectSection">
 					<h2>Group Projects</h2>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Undisclosed</h4>
-								<p>Multiplayer FPS available on PC.<br/>Team of ~25 Developers.<br/><span class="badge badge-danger">C++</span> <span class="badge badge-danger">x86 Assembly</span> <span class="badge badge-secondary">JavaScript</span></p>
+								<p>Multiplayer FPS available on PC.<br/>Team of ~25 Developers.<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">x86 Assembly</span> <span className="badge badge-secondary">JavaScript</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h3>'Supernova'</h3>
-								<p>Halo themed solo and multiplayer PC game.<br/>Team of ~15 Developers, Pre-Alpha.<br/><span class="badge badge-danger">C#</span></p>
+								<p>Halo themed solo and multiplayer PC game.<br/>Team of ~15 Developers, Pre-Alpha.<br/><span className="badge badge-danger">C#</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://media.discordapp.net/attachments/324967267483779072/404097123236315136/SupernovaSmallwShadow.png?width=1124&height=1036"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Undisclosed</h4>
-								<p>Reasearch Project.<br/>Team of ~10 Developers.<br/><span class="badge badge-danger">C#</span> <span class="badge badge-secondary">x86 Assembly</span> <span class="badge badge-secondary">Research</span> <span class="badge badge-secondary">C+</span></p>
+								<p>Reasearch Project.<br/>Team of ~10 Developers.<br/><span className="badge badge-danger">C#</span> <span className="badge badge-secondary">x86 Assembly</span> <span className="badge badge-secondary">Research</span> <span className="badge badge-secondary">C+</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="projectSection">
+				<div className="projectSection">
 					<h2>Work Experience</h2>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Automatic Data Processing (ADP)</h4>
-							<p>Software Development Intern<br/>Peterborough, 2016<br/><span class="badge badge-danger">Agile Scrum</span> <span class="badge badge-danger">JavaScript</span> <span class="badge badge-danger">Selenium</span> <span class="badge badge-secondary">NodeJS</span></p>
+							<p>Software Development Intern<br/>Peterborough, 2016<br/><span className="badge badge-danger">Agile Scrum</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">Selenium</span> <span className="badge badge-secondary">NodeJS</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Automatic_Data_Processing_%28logo%29.svg/1280px-Automatic_Data_Processing_%28logo%29.svg.png"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>Mold.Agency</h4>
-								<p>Backend Web Developer<br/>Peterborough, 2017<br/><span class="badge badge-danger">NodeJS</span> <span class="badge badge-danger">JavaScript</span> <span class="badge badge-secondary">MongoDB</span> <span class="badge badge-secondary">MySQL</span> <span class="badge badge-secondary">PHP</span></p>
+								<p>Backend Web Developer<br/>Peterborough, 2017<br/><span className="badge badge-danger">NodeJS</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-secondary">MongoDB</span> <span className="badge badge-secondary">MySQL</span> <span className="badge badge-secondary">PHP</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="http://www.gophantoms.co.uk/wp-content/uploads/2017/08/mold-logo-pink.png"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="projectSection">
+				<div className="projectSection">
 					<h2>Education</h2>
-					<div class="row">
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+					<div className="row">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h4>University of East Anglia</h4>
-								<p>Masters in Computing Sciences<br/>Norwich, 2017 (Ongoing)<br/><span class="badge badge-danger">Python</span> <span class="badge badge-danger">Java</span> <span class="badge badge-secondary">JavaScript</span></p>
+								<p>Masters in Computing Sciences<br/>Norwich, 2017 (Ongoing)<br/><span className="badge badge-danger">Python</span> <span className="badge badge-danger">Java</span> <span className="badge badge-secondary">JavaScript</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://www.uea.ac.uk/documents/2654296/0/UEA_NEW_BRAND_Magenta.png/b14edc4b-c4ca-4197-bee9-7e3a562027ca?t=1455793092763"/>
 							</div>
 						</div>
-						<div class="col-md-6 portfolioProject">
-							<div class="left">
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
 								<h3>Peterborough Regional College</h3>
-								<p>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017<br/><span class="badge badge-danger">C#</span> <span class="badge badge-danger">PHP</span> <span class="badge badge-danger">C</span> <span class="badge badge-secondary">Python</span> <span class="badge badge-secondary">C++</span> <span class="badge badge-secondary">Assembly</span></p>
+								<p>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017<br/><span className="badge badge-danger">C#</span> <span className="badge badge-danger">PHP</span> <span className="badge badge-danger">C</span> <span className="badge badge-secondary">Python</span> <span className="badge badge-secondary">C++</span> <span className="badge badge-secondary">Assembly</span></p>
 							</div>
-							<div class="right">
+							<div className="right">
 								<img src="https://www.studenthut.com/sites/default/files/styles/drudesk_profile/public/university_logo%E2%80%8E_folder_158?itok=lNBX1Oi8"/>
 							</div>
 						</div>
@@ -175,52 +175,52 @@ export default class Portfolio extends React.Component {
 		  
 		  //(
 	// 	<div className="page" id="portfolio">
-	// 		<div class="row">
-	// 			<div class="col-md-12">
-	// 				<div class="row">
-	// 					<div class="col-md-12">
-	// 						<div class="row">
-	// 							<div class="col-md-4">
+	// 		<div className="row">
+	// 			<div className="col-md-12">
+	// 				<div className="row">
+	// 					<div className="col-md-12">
+	// 						<div className="row">
+	// 							<div className="col-md-4">
 	// 							</div>
-	// 							<div class="col-md-8">
+	// 							<div className="col-md-8">
 	// 								<h1>Featured Project</h1>
 	// 								<p>Project Info</p>
 	// 							</div>
 	// 						</div>
 	// 					</div>
 	// 				</div>
-	// 				<div class="row">
-	// 					<div class="col-md-6">
-	// 						<div class="row">
-	// 							<div class="col-md-4">
+	// 				<div className="row">
+	// 					<div className="col-md-6">
+	// 						<div className="row">
+	// 							<div className="col-md-4">
 	// 							</div>
-	// 							<div class="col-md-8">
+	// 							<div className="col-md-8">
 	// 							<h2>Other Project</h2>
 	// 								<p>Project Info</p>
 	// 							</div>
 	// 						</div>
-	// 						<div class="row">
-	// 							<div class="col-md-4">
+	// 						<div className="row">
+	// 							<div className="col-md-4">
 	// 							</div>
-	// 							<div class="col-md-8">
+	// 							<div className="col-md-8">
 	// 							<h2>Other Project</h2>
 	// 								<p>Project Info</p>
 	// 							</div>
 	// 						</div>
 	// 					</div>
-	// 					<div class="col-md-6">
-	// 						<div class="row">
-	// 							<div class="col-md-4">
+	// 					<div className="col-md-6">
+	// 						<div className="row">
+	// 							<div className="col-md-4">
 	// 							</div>
-	// 							<div class="col-md-8">
+	// 							<div className="col-md-8">
 	// 							<h2>Other Project</h2>
 	// 								<p>Project Info</p>
 	// 							</div>
 	// 						</div>
-	// 						<div class="row">
-	// 							<div class="col-md-4">
+	// 						<div className="row">
+	// 							<div className="col-md-4">
 	// 							</div>
-	// 							<div class="col-md-8">
+	// 							<div className="col-md-8">
 	// 							<h2>Other Project</h2>
 	// 								<p>Project Info</p>
 	// 							</div>

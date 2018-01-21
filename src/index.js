@@ -9,6 +9,6 @@ import { preloadPosts } from "./components/pages/Blog";
 
 const RoutedApp = withRouter(App);
 
+preloadPosts();
 ReactDOM.render(<BrowserRouter><RoutedApp /></BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
-preloadPosts();

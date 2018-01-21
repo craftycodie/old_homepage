@@ -9,7 +9,7 @@ export default class Header extends React.Component {
               <div id="headerImage">
               <div>
         <header>
-            <div class="left">
+            <div className="left">
             <h1>
                 <b>Alex Newark</b>
             </h1>
@@ -17,7 +17,7 @@ export default class Header extends React.Component {
             Student at UEA. Other things.
             {/* <small> Music addict, podcast enthusiast.</small>*/}</p>
             </div>
-            <div class="right">
+            <div className="right">
             <img src="https://pbs.twimg.com/profile_images/954254230314979328/ISO3BgXP_400x400.jpg"/>
             </div>
         </header>
