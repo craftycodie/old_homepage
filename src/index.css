@@ -18,6 +18,11 @@
   background-color: #00f;
 } */
 
+hr {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -64,9 +69,10 @@ body, .App, .app div{
 }
 
 .page {
-  height: 75vh;
+  height: 78vh;
   overflow-y: overlay;
-  padding-top: 1rem;
+  padding-top: 2vh;
+  text-align: left;
 }
 
 header {
@@ -443,4 +449,29 @@ form{
 
 nav hr:last-of-type {
   margin-bottom: 0px;
+}
+
+iframe.page {
+  width: 100%;
+}
+
+#blogPostEditor textarea{
+  width: 100%;
+  height: 68vh;
+  resize: none;
+}
+
+#postEditorToolbar
+{
+  height: 6vh;
+  width: 100%;
+}
+
+#postEditorToolbar input[type="text"]
+{
+  width: 100%;
+}
+
+#blogPostEditor img {
+  width: 100%;
 }

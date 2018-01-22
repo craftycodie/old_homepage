@@ -19,14 +19,16 @@ import Login from './components/pages/Login';
 
 import ApiHandler from './api/apiHandler';
 import ApiConfig from './api/localConfig';
+import BlogPostEditor from './components/pages/BlogPostEditor';
 export var apiHandler;
 
 var navigationOrder = {};
 navigationOrder["/"] = 0;
 navigationOrder["/blog"] = 1;
 navigationOrder["/blog/post"] = 2;
-navigationOrder["/about"] = 3;
-navigationOrder["/login"] = 4;
+navigationOrder["/blog/post/edit"] = 3;
+navigationOrder["/about"] = 4;
+navigationOrder["/login"] = 5;
 
 var prevLocationPathname = null;
 function getAnimationClassName(location)
@@ -39,6 +41,9 @@ function getAnimationClassName(location)
 
   if(location.pathname.indexOf("/blog/post") !== -1)
     newOrder = navigationOrder["/blog/post"];
+
+  if(location.pathname.indexOf("/edit") !== -1)
+    newOrder = navigationOrder["/blog/post/edit"];
   
   var animationName = "slideleft";
 
@@ -77,18 +82,20 @@ export default class App extends React.Component {
     return (
       <div className="App">
       <Konami history={this.props.history}/>
-      <AdminBar location={this.props.location}/>
+      <AdminBar history={this.props.history} location={this.props.location}/>
       <Header />
       <TransitionGroup id="pageContainer" childFactory={childFactoryCreator(getAnimationClassName(this.props.location))}>
         <CSSTransition key={this.props.location.key} timeout={500}>
         <Switch location={this.props.location}>
+        <Route exact path="/login" component={Login} />
+          <Route exact path="/blog/post/:postID/edit" component={BlogPostEditor} />
+          <Route exact path="/blog/post/new" component={BlogPostEditor} />
+          
           <Route exact path="/" component={Portfolio} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blog/post/:postID" component={BlogPost} />
           <Route exact path="/about" component={About} />
           <Route exact path="/portfolio" component={Portfolio} />
-  
-          <Route exact path="/login" component={Login} />
   
           <Route path="*" component={Error404} />
           </Switch>

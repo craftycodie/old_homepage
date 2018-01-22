@@ -94,4 +94,43 @@ export default class ApiHandler {
         this.history.push("/blog");
     }
 
+    editPost(postID, newTitle, newBody, newSticky)
+    {
+        if(!this.isUserLogged())
+            return;
+
+        request
+        .post(this.apiConfig.postRoute + "/" + postID + "/edit")
+        .send({title: newTitle, body: newBody, sticky: newSticky, tags: []})
+        .set('Authorization', this.JWT)
+        .set('Accept', 'application/json')
+        .set("Cache-Control", "no-cache")
+        .end((err, res) => {
+            var success = JSON.parse(res.text).success;
+            if(!success)
+                alert("Failed to edit post: " + JSON.parse(res.text).message)
+            else
+                this.history.push("/blog/post/" + postID);
+        });
+    }
+
+    newPost(newTitle, newBody, newSticky)
+    {
+        if(!this.isUserLogged())
+            return;
+
+        request
+        .post(this.apiConfig.newPostRoute)
+        .send({title: newTitle, body: newBody, sticky: newSticky, tags: []})
+        .set('Authorization', this.JWT)
+        .set('Accept', 'application/json')
+        .set("Cache-Control", "no-cache")
+        .end((err, res) => {
+            var success = JSON.parse(res.text).success;
+            if(!success)
+                alert("Failed to create post: " + JSON.parse(res.text).message)
+            else
+                this.history.push("/blog/post/" + JSON.parse(res.text).data);
+        });
+    }
 }
