@@ -15,6 +15,7 @@ export function reloadPosts()
   loadedRecentPosts = [];
   loadedStickyPosts = [];
   preloadPosts();
+  loadedAllRecentPosts = false;
 }
 
 export function getAllLoadedPosts()
