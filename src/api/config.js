@@ -23,6 +23,4 @@ export default ApiConfig =
     registerRoute = authRoute + "",
     loginRoute = authRoute + "",
     protectedRoute = authRoute + "",
-
-
 }

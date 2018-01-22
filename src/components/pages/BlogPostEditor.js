@@ -1,6 +1,5 @@
 import React from "react"
-import { apiHandler } from "../../App"
-import showdown from "showdown";
+import { apiHandler, showdownConverter } from "../../App"
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { getAllLoadedPosts } from "./Blog"
@@ -91,8 +90,6 @@ export default class BlogPostEditor extends React.Component {
   }
 
   render() {
-    var converter = new showdown.Converter();
-
     if(this.state.postID != null && !this.state.loadedPost)
     {
       if(this.state.errorCount >= 3)
@@ -140,7 +137,7 @@ export default class BlogPostEditor extends React.Component {
             <textarea value={this.state.postBody} onChange={this.handleChange} id="postBody"/>
           </div>
           <div className="col-md-6">
-            {ReactHtmlParser(converter.makeHtml(this.state.postBody))}
+            {ReactHtmlParser(showdownConverter.makeHtml(this.state.postBody))}
           </div>
         </div>
       </div>

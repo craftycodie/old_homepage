@@ -4,6 +4,7 @@ import './App.css';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import showdown from "showdown";
 
 import Header from "./components/global/Header";
 //import Footer from "./components/global/Footer";
@@ -21,6 +22,18 @@ import ApiHandler from './api/apiHandler';
 import ApiConfig from './api/localConfig';
 import BlogPostEditor from './components/pages/BlogPostEditor';
 export var apiHandler;
+export var showdownConverter = new showdown.Converter(
+  {
+    tasklists: true,
+    smoothLivePreview: true,
+    simpleLineBreaks: true,
+    ghMentions: true,
+    emoji: true,
+    underline: true,
+    tables: true,
+    strikethrough: true
+  }
+);
 
 var navigationOrder = {};
 navigationOrder["/"] = 0;

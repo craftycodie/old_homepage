@@ -2,9 +2,8 @@ import React from "react"
 import { Link } from 'react-router-dom';
 import { getAllLoadedPosts } from "../Blog"
 import request from "superagent"
-import showdown from "showdown";
 import ReactHtmlParser from 'react-html-parser';
-import { apiHandler } from "../../../App";
+import { apiHandler, showdownConverter } from "../../../App";
 
 export default class BlogPostPreview extends React.Component {
   
@@ -51,9 +50,6 @@ export default class BlogPostPreview extends React.Component {
   }
 
   render() {
-
-    var converter = new showdown.Converter();
-
     if(this.state.blogPost == null)
     {
       if(this.state.errorCount >= 3)
@@ -90,7 +86,7 @@ export default class BlogPostPreview extends React.Component {
     <div id="blogPost" className="centerMargins">
     <h1 className="">{this.state.blogPost.title}</h1>
     {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
-    {ReactHtmlParser(converter.makeHtml(this.state.blogPost.body))}
+    {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
   </div></div>);
   }
 }

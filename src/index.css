@@ -43,7 +43,7 @@ footer {
   overflow-y: overlay;
 }
 
-#blog, #login, #blogPost{
+#blog, #login, #blogPost, header{
   width: 100%;
   max-width: 720px;
   padding-left: 5px;
@@ -237,16 +237,11 @@ header h1{
 
 header {
   height: 15vh;
-  width: 80vh;
-  min-width: 720px;
-  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
   text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 1px -1px 0 rgba(0,0,0,0.5), -1px 1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(0,0,0,0.5);
   color: white;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 header p {
@@ -399,6 +394,13 @@ a, .failedLoad span{
 }
 
 #blogPost img, .blogPostPreview img {
+  /* display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* float: left; */
+  /* max-height: 50vh;
+  width: auto;
+  max-width: 100%; */ 
   width: 100%;
 }
 
@@ -409,6 +411,22 @@ a, .failedLoad span{
 .blogPreviewBody {
   max-height: 35vh;
   overflow: hidden;
+}
+
+.blogPreviewBody h1 {
+  font-size: 1.75rem;
+}
+.blogPreviewBody h2 {
+  font-size: 1.5rem;
+}
+.blogPreviewBody h3 {
+  font-size: 1.25rem;
+}
+.blogPreviewBody h4 {
+  font-size: 1rem;
+}
+.blogPreviewBody h5 {
+  font-size: 1rem;
 }
 
 /* .blogPostPreview.sticky {
@@ -464,8 +482,11 @@ iframe.page {
 
 #blogPostEditor textarea{
   width: 100%;
-  height: 68vh;
+  position: relative;
+  min-height: 68vh;
+  height: 100%;
   resize: none;
+  bottom: 1vh;
 }
 
 #postEditorToolbar
