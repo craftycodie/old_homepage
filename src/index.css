@@ -43,16 +43,14 @@ footer {
   overflow-y: overlay;
 }
 
-#blog, #login{
-  max-width: 70vh;
+#blog, #login, #blogPost{
+  width: 100%;
+  max-width: 720px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 #blogPost{
-  max-width: 70vh;
-  padding-left: 5px;
-  padding-right: 5px;
   text-align: left;
 }
 
@@ -142,22 +140,26 @@ header h1{
 
 @-webkit-keyframes slideInRight {
   0% { margin-left: -100%; opacity: 0; }
+  75% { opacity: 1;}
   100% { margin-left: inherit; opacity: 1; }
 }
 
 @keyframes slideInRight {
   0% { margin-left: -100%; opacity: 0; }
+  75% { opacity: 1;}
   100% { margin-left: inherit; opacity: 1; }
 }
 
 @-webkit-keyframes slideOutRight {
   0% { opacity: 1;}
+  75% { opacity: 0;}
   100% { margin-right: -100%; opacity: 0; }
 }
 
 @keyframes slideOutRight {
   0% { opacity: 1;}
-  100% { margin-right: -100%; opacity: 0; }
+  75% { opacity: 0;}
+  100% { margin-right: -100%;}
 }
 
 .slideleft-enter {
@@ -235,7 +237,9 @@ header h1{
 
 header {
   height: 15vh;
-  max-width: 70vh;
+  width: 80vh;
+  min-width: 720px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -326,7 +330,10 @@ nav {
 }
 
 #portfolio, #about {
-  max-width: 140vh;
+  width: 100%;
+  max-width: 1260px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 nav > hr:first-of-type {
