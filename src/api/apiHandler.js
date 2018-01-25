@@ -133,4 +133,60 @@ export default class ApiHandler {
                 this.history.push("/blog/post/" + JSON.parse(res.text).data);
         });
     }
+
+    recentPosts(at, count, success, error)
+    {
+        fetch(this.apiConfig.recentPostsRoute 
+        + this.buildQueryString({
+            at: at,
+            count: count
+        }),
+        {
+            headers: {
+                "Accept": "application/json",
+                "Cache-Control": "no-cache"
+            }
+        })
+        .then(response => {
+          if(!response.ok)
+            throw Error("Error retrieving recent posts.");
+          else return response;
+        })
+        .then(r => r.json())
+        .then(j => {success(j)}, () => {error()});
+    }
+
+    stickyPosts(success, error)
+    {
+        fetch(this.apiConfig.stickyPostsRoute,
+        {
+            headers: {
+                "Accept": "application/json",
+                "Cache-Control": "no-cache"
+            }
+        })
+        .then(response => {
+          if(!response.ok)
+            throw Error("Error retrieving sticky posts.");
+          else return response;
+        })
+        .then(r => r.json())
+        .then(j => {success(j)}, () => {error()});
+    }
+
+    buildQueryString(query)
+    {
+        var queryString = "";
+        for (var property in query)
+        {
+            if(queryString === "")
+                queryString += '?';
+            else
+                queryString += '&';
+                
+            queryString += property + "=" + query[property];
+        }
+
+        return queryString;
+    }
 }

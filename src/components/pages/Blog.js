@@ -4,157 +4,205 @@ import InfiniteScroll from '../../util/react-infinite-scroll-component/app/';
 
 
 import BlogPostPreview from "./blog/BlogPostPreview";
+import { apiHandler } from "../../App";
 
-let loadedRecentPosts = [];
-let loadedStickyPosts = [];
+let recentPosts = [];
+let stickyPosts = [];
 let loadedAllRecentPosts = false;
-let preloadedPosts = false;
+let loadedStickyPosts = false;
+let loadedRecentPosts = false;
 
 export function reloadPosts()
 {
-  loadedRecentPosts = [];
-  loadedStickyPosts = [];
-  preloadPosts();
+  recentPosts = [];
+  stickyPosts = [];
   loadedAllRecentPosts = false;
+  loadedStickyPosts = false;
+  loadedRecentPosts = false;
+
+  loadPosts();
 }
 
 export function getAllLoadedPosts()
 {
-  return loadedRecentPosts.concat(loadedStickyPosts);
+  return recentPosts.concat(stickyPosts);
 }
 
-export function preloadPosts () {
-
-  console.log("Preloading blog posts...")
-
-  loadStickyPosts();
-  loadRecentPosts();
-
-  setTimeout(() => {
-    preloadedPosts = true;
-  }, 500);
+export function loadPosts() {
+  if(this)
+  {
+    if(!loadedStickyPosts)
+      this.loadStickyPosts();
+      
+    this.loadRecentPosts();
+  }
+  else
+  {
+    if(!loadedStickyPosts)
+      loadStickyPosts();
+      
+    loadRecentPosts();
+  }
 }
 
 function loadStickyPosts()
 {
-  var newPosts = [];
+  apiHandler.stickyPosts(j => {
+    var newPosts = [];
 
-  console.log("loading sticky posts...")
-
-  request
-  .get('http://localhost:8080/api/blog/posts/sticky')
-  .set('Accept', 'application/json')
-  .set("Cache-Control", "no-cache")
-  .end((err, res) => {
-    
-    JSON.parse(res.text).data.forEach(blogPost => {
+    j.data.forEach(blogPost => {
       newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
     });
-  });
 
-  setTimeout(() => {
-    loadedStickyPosts = loadedStickyPosts.concat(newPosts);
-  }, 500);
+    stickyPosts = newPosts;
+
+    loadedStickyPosts = true;
+
+    if(this)
+    {
+      this.setState({
+        stickyPosts: stickyPosts
+      })
+    }
+  }, () => {
+    if(this)
+    {
+      this.setState({
+        stickyPostsRequestFailed: true,
+        stickyPostsRequestFailedCount: this.state.stickyPostsRequestFailedCount + 1
+      })
+    }
+  });
 }
 
 function loadRecentPosts()
 {
-  var newPosts = [];
+  apiHandler.recentPosts(recentPosts.length, 20, j => {
+    var newPosts = [];
 
-  console.log("loading recent posts...")
-
-  var count = 20;
-
-  request
-  .get('http://localhost:8080/api/blog/posts/recent')
-  .query({ at: loadedRecentPosts.length, count: count }) // query string
-  .set('Accept', 'application/json')
-  .set("Cache-Control", "no-cache")
-  .end((err, res) => {
-
-    JSON.parse(res.text).data.forEach(blogPost => {
+    j.data.forEach(blogPost => {
       newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
     });
 
-    if(typeof(JSON.parse(res.text).data.length) === "undefined" || JSON.parse(res.text).data.length < count)
+    recentPosts = recentPosts.concat(newPosts);
+
+    loadedRecentPosts = true;
+
+    if(this)
     {
-      loadedAllRecentPosts = true;
+      this.setState({
+        recentPosts: recentPosts
+      })
+    }
+  }, () => {
+    if(this)
+    {
+      this.setState({
+        recentPostsRequestFailed: true,
+        recentPostsRequestFailedCount: this.state.recentPostsRequestFailedCount + 1
+      })
     }
   });
-
-  setTimeout(() => {
-    loadedRecentPosts = loadedRecentPosts.concat(newPosts);
-  }, 500);
-
-  return newPosts;
 }
+
+
 
 export default class Blog extends React.Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.state = {
-      stickyPostElements: loadedStickyPosts,
-      postElements: loadedRecentPosts,
+      recentPostsRequestFailed: false,
+      recentPostsRequestFailedCount: 0,
+      stickyPostsRequestFailed: false,
+      stickyPostsRequestFailedCount: 0,
+      recentPosts: [],
+      stickyPosts: []
     };
 
-    this.loadPosts = this.loadPosts.bind(this);
-    this.refresh = this.refresh.bind(this);
-
-    setTimeout(() => {
-      this.refresh();
-    }, 500);
+    this.loadRecentPosts = loadRecentPosts.bind(this);
+    this.loadStickyPosts = loadStickyPosts.bind(this);
+    this.loadPosts = loadPosts.bind(this);
   }
 
-  loadPosts() {
-  
-    console.log("loading posts...");
-
-    var stickyPosts = [];
-    var recentPosts = [];
-
-    if(!preloadedPosts)
-    {
-      stickyPosts = loadStickyPosts();
-    }
-
-    recentPosts = loadRecentPosts();
-    
-    setTimeout(() => {
-      this.setState({postElements: loadedRecentPosts, stickyPostElements: loadedStickyPosts});
-    }, 1000);
-  }
-  
-  refresh () {
-    this.setState({postElements: loadedRecentPosts, stickyPostElements: loadedStickyPosts});
-    setTimeout(() => {
-      this.setState({});
-    }, 3000);
+  componentDidMount()
+  {
+    this.loadPosts();
   }
 
   render() {
-    console.log("rendering blog with " + this.state.stickyPostElements.length + " sticky posts and " + this.state.postElements.length + " recent posts");
 
-    if(this.state.stickyPostElements.length < 1 && this.state.postElements.length < 1)
+    var stickyPostsRender;
+    if(!loadedStickyPosts)
+    {
+      if(this.state.stickyPostsRequestFailed)
+      {
+        stickyPostsRender =
+          <div>
+            <h1>Failed to load Sticky Posts.</h1>
+            <h3>Trying {3-this.state.stickyPostsRequestFailedCount} more times...</h3>
+          </div>;
+
+        this.loadStickyPosts();
+      }
+      else
+      {
+        stickyPostsRender = <h1>Loading Sticky Posts...</h1>;
+      }
+    }
+    else
+    {
+      stickyPostsRender = this.state.stickyPosts;
+    }
+
+    var recentPostsRender;
+    if(!loadedRecentPosts)
+    {
+      if(this.state.recentPostsRequestFailed)
+      {
+        recentPostsRender =
+          <div>
+            <h1>Failed to load Recent Posts.</h1>
+            <h3>Trying {3-this.state.recentPostsRequestFailedCount} more times...</h3>
+          </div>;
+
+        this.loadRecentPosts();
+      }
+      else
+      {
+        recentPostsRender = <h1>Loading Recent Posts...</h1>;
+      }
+    }
+    else
+    {
+      recentPostsRender =
+        <InfiniteScroll 
+          next={this.loadPosts}
+          hasMore={!loadedAllRecentPosts}
+          loader={<h1>Loading...</h1>}
+          scrollableTargetID="blogScrollableTarget"
+        >
+          {this.state.recentPosts}
+        </InfiniteScroll>;
+    }
+
+
+    console.log("rendering blog with " + this.state.stickyPosts.length + " sticky posts and " + this.state.recentPosts.length + " recent posts");
+
+
+
+    if(this.state.stickyPosts.length < 1 && this.state.recentPosts.length < 1)
     {
       return <h1>Loading...</h1>;
     }
 
     return (
-    <div id="blogScrollableTarget" className="page">
-      <div id="blog" className="centerMargins">
-      <InfiniteScroll 
-      id="blog"
-      className="page"
-      next={this.loadPosts}
-      hasMore={!loadedAllRecentPosts}
-      loader={<h1>Loading...</h1>}
-      scrollableTargetID="blogScrollableTarget"
-      >
-        {this.state.stickyPostElements}{this.state.postElements}
-      </InfiniteScroll>
-    </div>
-    </div>
+      <div id="blogScrollableTarget" className="page">
+        <div id="blog" className="centerMargins">
+          {stickyPostsRender}
+          {recentPostsRender}
+        </div>
+      </div>
   )};
 }
