@@ -48,7 +48,7 @@ function loadStickyPosts()
   .end((err, res) => {
     
     JSON.parse(res.text).data.forEach(blogPost => {
-      newPosts.push(<BlogPostPreview sticky={true} key={blogPost._id} blogPost={blogPost}/>)
+      newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
     });
   });
 

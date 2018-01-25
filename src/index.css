@@ -421,7 +421,7 @@ a, .failedLoad span{
 }
 
 .blogPreviewBody {
-  max-height: 35vh;
+  max-height: 15rem;
   overflow: hidden;
 }
 
@@ -441,11 +441,9 @@ a, .failedLoad span{
   font-size: 1rem;
 }
 
-/* .blogPostPreview.sticky {
-  border: 1px solid rgba(0,0,0,.1);
-  border-left: 0px;
-  border-right: 0px;
-} */
+.sticky .blogPreviewBody {
+  max-height: 20rem;
+}
 
 /* .blogPostPreview.sticky::before {
   content: "Sticky Post";
@@ -518,4 +516,8 @@ iframe.page {
 
 .postTitle{
   font-size: 3rem;
+}
+
+.postBody hr {
+  border-color: black;
 }

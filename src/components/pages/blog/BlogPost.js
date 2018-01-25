@@ -86,7 +86,10 @@ export default class BlogPostPreview extends React.Component {
     <div id="blogPost" className="centerMargins">
     <h1 className="postTitle">{this.state.blogPost.title}</h1>
     {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
+    <hr/>
+    <div className="postBody">
     {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
+    </div>
   </div></div>);
   }
 }
