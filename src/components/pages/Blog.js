@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 import InfiniteScroll from '../../util/react-infinite-scroll-component/app/';
 
 import BlogPostPreview from "./blog/BlogPostPreview";
@@ -164,6 +165,26 @@ export default class Blog extends React.Component {
 
   render() {
 
+    if(!loadedRecentPosts && !loadedRecentPosts && this.state.stickyPostsRequestFailedCount > 3 && this.state.recentPostsRequestFailedCount > 3)
+    {
+      return (
+        <div id="blogScrollableTarget" className="page">
+          <div id="blog" className="centerMargins failedLoad">
+            <h1>Blog posts are currently unavailable.</h1>
+            <p>
+              The blog may be down for maintainence. 
+              <br/>
+              Please try again later.
+            </p>
+            <br/>
+            <span onClick={this.props.history.goBack}>Go Back</span>
+            <br/>
+            <Link to="/">Go to Portfolio</Link>
+          </div>
+        </div>
+      );
+    }
+
     var stickyPostsRender;
     if(!loadedStickyPosts)
     {
@@ -172,7 +193,11 @@ export default class Blog extends React.Component {
         stickyPostsRender =
           <div>
             <h1>Failed to load Sticky Posts.</h1>
-            <h3>Trying {3-this.state.stickyPostsRequestFailedCount} more times...</h3>
+            <h3>
+              Trying
+                {" "}{3 - this.state.stickyPostsRequestFailedCount >= 0 ? 3 - this.state.stickyPostsRequestFailedCount : 0}{" "}
+              more times...
+            </h3>
           </div>;
       }
       else
@@ -180,7 +205,8 @@ export default class Blog extends React.Component {
         stickyPostsRender = <h1>Loading Sticky Posts...</h1>;
       }
 
-      this.loadStickyPosts();
+      if(this.state.stickyPostsRequestFailedCount < 3)
+        this.loadStickyPosts();
     }
     else
     {
@@ -195,7 +221,11 @@ export default class Blog extends React.Component {
         recentPostsRender =
           <div>
             <h1>Failed to load Recent Posts.</h1>
-            <h3>Trying {3-this.state.recentPostsRequestFailedCount} more times...</h3>
+            <h3>
+              Trying
+                {" "}{3 - this.state.recentPostsRequestFailedCount >= 0 ? 3 - this.state.recentPostsRequestFailedCount : 0}{" "}
+              more times...
+            </h3>
           </div>;
       }
       else
@@ -203,7 +233,8 @@ export default class Blog extends React.Component {
         recentPostsRender = <h1>Loading Posts...</h1>;
       }
 
-      this.loadRecentPosts();
+      if(this.state.recentPostsRequestFailedCount < 3)
+        this.loadRecentPosts();
     }
     else
     {

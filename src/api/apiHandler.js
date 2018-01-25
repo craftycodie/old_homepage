@@ -57,18 +57,29 @@ export default class ApiHandler {
 
     checkToken()
     {
-        request
-        .get(this.apiConfig.protectedRoute)
-        .set('Authorization', this.JWT)
-        .set('Accept', 'application/json')
-        .set("Cache-Control", "no-cache")
-        .end((err, res) => {
-            var success = JSON.parse(res.text).success;
-
-            if(!success && this.JWT != null)
+        fetch(this.apiConfig.protectedRoute,
+        {
+            headers: {
+                'Authorization': this.JWT,
+                "Accept": "application/json",
+                "Cache-Control": "no-cache"
+            }
+        })
+        .then(response => {
+            if(!response.ok)
+            throw Error("Error checking token posts.");
+            else return response;
+        })
+        .then(r => r.json())
+        .then(j => {
+            if(!j.success && this.JWT != null)
             {
                 this.logoutUser();
-                alert("invalid token");
+            }
+        }, () => {
+            if(this.JWT != null)
+            {
+                this.logoutUser();
             }
         });
     }
@@ -156,6 +167,30 @@ export default class ApiHandler {
         .then(j => {
             if(!j.success)
                 throw Error("Error retrieving recent posts.");
+
+            return j;
+        })
+        .then(j => {success(j)}, () => {error()});
+    }
+
+    blogPost(postID, success, error)
+    {
+        fetch(this.apiConfig.postRoute + "/" + postID,
+        {
+            headers: {
+                "Accept": "application/json",
+                "Cache-Control": "no-cache"
+            }
+        })
+        .then(response => {
+          if(!response.ok)
+            throw Error("Error retrieving blog post.");
+          else return response;
+        })
+        .then(r => r.json())
+        .then(j => {
+            if(!j.success)
+                throw Error("Error blog recent post.");
 
             return j;
         })

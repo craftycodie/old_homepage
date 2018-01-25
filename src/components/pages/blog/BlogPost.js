@@ -14,11 +14,6 @@ export default class BlogPostPreview extends React.Component {
       errorCount: 0
     };
     this.getPostData = this.getPostData.bind(this);
-    this.goBack = this.goBack.bind(this);
-  }
-
-  goBack() {
-    this.props.history.goBack();
   }
 
   getPostData() {
@@ -30,22 +25,12 @@ export default class BlogPostPreview extends React.Component {
       }
     });
 
-    request
-    .get('http://localhost:8080/api/blog/post/' + this.props.match.params.postID)
-    .set('Accept', 'application/json')
-    .set("Cache-Control", "no-cache")
-    .end((err, res) => {
-      console.log(JSON.parse(res.text));
-      
-      if(JSON.parse(res.text).data != null)
-      {
-        setTimeout(() => {
-          this.setState({blogPost: JSON.parse(res.text).data});
-        }, 500);
-      }
-      else{
-        this.setState({errorCount: this.state.errorCount+1})
-      }
+    apiHandler.blogPost(this.props.match.postID,
+    j => {
+      this.setState({blogPost: j.data});
+    },
+    () => {
+      this.setState({errorCount: this.state.errorCount + 1})
     });
   }
 
@@ -54,42 +39,61 @@ export default class BlogPostPreview extends React.Component {
     {
       if(this.state.errorCount >= 3)
       {
-        console.log(this.props.history);
-
-        return <div className="page">
-        <div id="blogPost" className="centerMargins failedLoad"><h2>Failed to load blog post.</h2>
-        <p>Tried {this.state.errorCount} times.<br/>
-        <span onClick={this.goBack}>Go Back</span>
-        <br/>
-        <Link to="/">Go to Portfolio</Link>
-        </p>
-        </div></div>
+        return (
+          <div className="page">
+            <div id="blogPost" className="centerMargins failedLoad">
+              <h1>Failed to load blog post.</h1>
+              <p>
+                The blog may be down for maintainence. 
+                <br/>
+                Please try again later.
+                <br/>
+              </p>
+              <span onClick={this.props.history.goBack}>Go Back</span>
+              <br/>
+              <Link to="/">Go to Portfolio</Link>
+            </div>
+          </div>
+        );
       }
 
       this.getPostData();
 
       if(this.state.errorCount > 0)
       {
-        return <div className="page">
-        <div id="blogPost" className="centerMargins"><h2>Loading...</h2>
-        <p>An error occured while loading the blog post.<br/>
-        Trying {3-this.state.errorCount} more times...</p>
-        </div></div>
+        return (
+          <div className="page">
+            <div id="blogPost" className="centerMargins">
+              <h2>Loading...</h2>
+              <p>An error occured while loading the blog post.
+                <br/>
+                Trying {3-this.state.errorCount} more times...
+              </p>
+            </div>
+          </div>
+        );
       }
 
-      return <div className="page">
-      <div id="blogPost" className="centerMargins"><h2>Loading...</h2>
-      </div></div>
+      return (
+        <div className="page">
+          <div id="blogPost" className="centerMargins">
+            <h2>Loading...</h2>
+          </div>
+        </div>
+      );
     }
 
-    return (    <div className="page">
-    <div id="blogPost" className="centerMargins">
-    <h1 className="postTitle">{this.state.blogPost.title}</h1>
-    {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
-    <hr/>
-    <div className="postBody">
-    {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
-    </div>
-  </div></div>);
+    return (    
+      <div className="page">
+        <div id="blogPost" className="centerMargins">
+          <h1 className="postTitle">{this.state.blogPost.title}</h1>
+          {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
+          <hr/>
+          <div className="postBody">
+            {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
+          </div>
+        </div>
+      </div>
+    );
   }
 }

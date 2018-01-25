@@ -11,21 +11,26 @@ export default class blogPostPreview extends React.Component {
   render() {
     var createdDate = new Date(this.props.blogPost.created);
     var createdString = 
-    createdDate.toLocaleDateString(navigator.userLanguage, { weekday: 'long' }) +
-    ", " +
-    getOrdinalNum(createdDate.getDate()) +
-    " " +
-    createdDate.toLocaleDateString(navigator.userLanguage, { month: 'long' }) +
-    " " +
-    createdDate.getFullYear();
+      createdDate.toLocaleDateString(navigator.userLanguage, { weekday: 'long' }) +
+      ", " +
+      getOrdinalNum(createdDate.getDate()) +
+      " " +
+      createdDate.toLocaleDateString(navigator.userLanguage, { month: 'long' }) +
+      " " +
+      createdDate.getFullYear();
+      
     return (
-    <div className={"blogPostPreview" + (this.props.blogPost.sticky ? " sticky" : "")}>
-    <h2>{this.props.blogPost.title}</h2>
-    <div className="blogPreviewBody">
-    {ReactHtmlParser(showdownConverter.makeHtml(this.props.blogPost.body.substring(0,500) + "..."))} </div>
-    <Link className="readMore" to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
-    <span className="right">{this.props.blogPost.sticky ? <span className="badge badge-secondary">Sticky Post</span> : ""}<small>{createdString}</small></span>
-  <hr/>
-  </div>);
+      <div className={"blogPostPreview" + (this.props.blogPost.sticky ? " sticky" : "")}>
+        <h2>{this.props.blogPost.title}</h2>
+        <div className="blogPreviewBody">
+          {ReactHtmlParser(showdownConverter.makeHtml(this.props.blogPost.body.substring(0,500) + "..."))}
+        </div>
+        <Link className="readMore" to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
+        <span className="right">
+          {this.props.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span> </span> : ""}<small>{createdString}</small>
+        </span>
+        <hr/>
+      </div>
+    );
   }
 }
