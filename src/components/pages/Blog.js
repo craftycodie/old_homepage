@@ -1,7 +1,5 @@
 import React from "react"
-import request from "superagent"
 import InfiniteScroll from '../../util/react-infinite-scroll-component/app/';
-
 
 import BlogPostPreview from "./blog/BlogPostPreview";
 import { apiHandler } from "../../App";
@@ -47,7 +45,23 @@ export function loadPosts() {
 
 function loadStickyPosts()
 {
+  if(loadedStickyPosts)
+    return;
+
   apiHandler.stickyPosts(j => {
+
+    if(loadedStickyPosts)
+    {
+      if(this)
+      {
+        this.setState({
+          stickyPosts: stickyPosts
+        })
+      }
+
+      return;
+    }
+
     var newPosts = [];
 
     j.data.forEach(blogPost => {
@@ -77,8 +91,30 @@ function loadStickyPosts()
 
 function loadRecentPosts()
 {
-  apiHandler.recentPosts(recentPosts.length, 20, j => {
+  if(loadedAllRecentPosts)
+    return;
+
+  var at = recentPosts.length;
+  var count = 20;
+
+  apiHandler.recentPosts(at, count, j => {
+
+    if(at + count >= recentPosts.count || loadedAllRecentPosts)
+    {
+      if(this)
+      {
+        this.setState({
+          recentPosts: recentPosts
+        })
+      }
+
+      return;
+    }
+   
     var newPosts = [];
+
+    if(typeof(j.data.length) === "undefined" || j.data.length < count)
+      loadedAllRecentPosts = true;
 
     j.data.forEach(blogPost => {
       newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
@@ -117,18 +153,13 @@ export default class Blog extends React.Component {
       recentPostsRequestFailedCount: 0,
       stickyPostsRequestFailed: false,
       stickyPostsRequestFailedCount: 0,
-      recentPosts: [],
-      stickyPosts: []
+      recentPosts: recentPosts,
+      stickyPosts: stickyPosts
     };
 
     this.loadRecentPosts = loadRecentPosts.bind(this);
     this.loadStickyPosts = loadStickyPosts.bind(this);
     this.loadPosts = loadPosts.bind(this);
-  }
-
-  componentDidMount()
-  {
-    this.loadPosts();
   }
 
   render() {
@@ -143,13 +174,13 @@ export default class Blog extends React.Component {
             <h1>Failed to load Sticky Posts.</h1>
             <h3>Trying {3-this.state.stickyPostsRequestFailedCount} more times...</h3>
           </div>;
-
-        this.loadStickyPosts();
       }
       else
       {
         stickyPostsRender = <h1>Loading Sticky Posts...</h1>;
       }
+
+      this.loadStickyPosts();
     }
     else
     {
@@ -166,13 +197,13 @@ export default class Blog extends React.Component {
             <h1>Failed to load Recent Posts.</h1>
             <h3>Trying {3-this.state.recentPostsRequestFailedCount} more times...</h3>
           </div>;
-
-        this.loadRecentPosts();
       }
       else
       {
-        recentPostsRender = <h1>Loading Recent Posts...</h1>;
+        recentPostsRender = <h1>Loading Posts...</h1>;
       }
+
+      this.loadRecentPosts();
     }
     else
     {
@@ -180,22 +211,14 @@ export default class Blog extends React.Component {
         <InfiniteScroll 
           next={this.loadPosts}
           hasMore={!loadedAllRecentPosts}
-          loader={<h1>Loading...</h1>}
+          loader={<h1>Loading Posts...</h1>}
           scrollableTargetID="blogScrollableTarget"
         >
           {this.state.recentPosts}
         </InfiniteScroll>;
     }
 
-
     console.log("rendering blog with " + this.state.stickyPosts.length + " sticky posts and " + this.state.recentPosts.length + " recent posts");
-
-
-
-    if(this.state.stickyPosts.length < 1 && this.state.recentPosts.length < 1)
-    {
-      return <h1>Loading...</h1>;
-    }
 
     return (
       <div id="blogScrollableTarget" className="page">

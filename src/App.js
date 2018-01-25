@@ -5,6 +5,7 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import showdown from "showdown";
+import { loadPosts } from "./components/pages/Blog";
 
 import Header from "./components/global/Header";
 //import Footer from "./components/global/Footer";
@@ -87,6 +88,8 @@ export default class App extends React.Component {
     super(props);
     
     apiHandler = new ApiHandler(ApiConfig, this.props.cookies, this.props.history);
+
+    loadPosts();
   }
 
   render() {

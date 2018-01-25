@@ -153,6 +153,12 @@ export default class ApiHandler {
           else return response;
         })
         .then(r => r.json())
+        .then(j => {
+            if(!j.success)
+                throw Error("Error retrieving recent posts.");
+
+            return j;
+        })
         .then(j => {success(j)}, () => {error()});
     }
 
@@ -171,6 +177,12 @@ export default class ApiHandler {
           else return response;
         })
         .then(r => r.json())
+        .then(j => {
+            if(!j.success)
+                throw Error("Error retrieving sticky posts.");
+
+            return j;
+        })
         .then(j => {success(j)}, () => {error()});
     }
 
