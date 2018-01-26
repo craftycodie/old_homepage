@@ -20,7 +20,7 @@ import Error404 from "./components/pages/Error404";
 import Login from './components/pages/Login';
 
 import ApiHandler from './api/apiHandler';
-import ApiConfig from './api/localConfig';
+import ApiConfig from './api/integratedConfig';
 import BlogPostEditor from './components/pages/BlogPostEditor';
 export var apiHandler;
 export var showdownConverter = new showdown.Converter(

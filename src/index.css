@@ -79,9 +79,9 @@ header {
   overflow: hidden;
 }
 
-header .left {
+/* header .left {
   width: 70%;
-}
+} */
 
 header .right {
   width: 30%;
