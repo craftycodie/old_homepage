@@ -5,6 +5,10 @@ import request from "superagent"
 import ReactHtmlParser from 'react-html-parser';
 import { apiHandler, showdownConverter } from "../../../App";
 
+function getOrdinalNum(n) {
+  return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+}
+
 export default class BlogPostPreview extends React.Component {
   
   constructor (props) {
@@ -77,11 +81,21 @@ export default class BlogPostPreview extends React.Component {
       return (
         <div className="page">
           <div id="blogPost" className="centerMargins">
-            <h2>Loading...</h2>
+            <h2>Loading blog post...</h2>
           </div>
         </div>
       );
     }
+
+    var createdDate = new Date(this.state.blogPost.created);
+    var createdString = 
+      createdDate.toLocaleDateString(navigator.userLanguage, { weekday: 'long' }) +
+      ", " +
+      getOrdinalNum(createdDate.getDate()) +
+      " " +
+      createdDate.toLocaleDateString(navigator.userLanguage, { month: 'long' }) +
+      " " +
+      createdDate.getFullYear();
 
     return (    
       <div className="page">
@@ -92,6 +106,11 @@ export default class BlogPostPreview extends React.Component {
           <div className="postBody">
             {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
           </div>
+          <hr/>
+          <Link to={"/blog"}>&lt;&lt; Back to Blog</Link>
+          <span className="right">
+            {this.state.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span> </span> : ""}<small>{createdString}</small>
+          </span>
         </div>
       </div>
     );

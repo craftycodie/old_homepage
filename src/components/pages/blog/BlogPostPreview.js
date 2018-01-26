@@ -18,16 +18,17 @@ export default class blogPostPreview extends React.Component {
       createdDate.toLocaleDateString(navigator.userLanguage, { month: 'long' }) +
       " " +
       createdDate.getFullYear();
-      
+
     return (
       <div className={"blogPostPreview" + (this.props.blogPost.sticky ? " sticky" : "")}>
         <h2>{this.props.blogPost.title}</h2>
+        {apiHandler.isUserLogged() ? <small>{this.props.blogPost._id}</small> : null}
         <div className="blogPreviewBody">
           {ReactHtmlParser(showdownConverter.makeHtml(this.props.blogPost.body.substring(0,500) + "..."))}
         </div>
         <Link className="readMore" to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
         <span className="right">
-          {this.props.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span> </span> : ""}<small>{createdString}</small>
+          {this.props.blogPost.sticky ? <span className="readMore"><span className="badge badge-secondary">Sticky Post</span>&nbsp;</span> : ""}<small className="readMore">{createdString}</small>
         </span>
         <hr/>
       </div>

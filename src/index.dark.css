@@ -1,8 +1,11 @@
-/* div, footer, hr {
+div, footer, hr {
   color: #eee;
-  background-color: #222;
-  border-color: white;
-} */
+  border-top-color: rgba(255,255,255,.1);
+}
+
+.page, body {
+  background-color: black;
+}
 
 /* #portfolio{
   background-color: #f00;
@@ -146,7 +149,7 @@ header h1{
   overflow-y: hidden;
   -webkit-animation: slideOutRight 0.5s forwards ease-in-out;
   animation: slideOutRight 0.5s forwards ease-in-out;
-} /**/
+}
 
 @-webkit-keyframes slideInRight {
   0% { margin-left: -100%; opacity: 0; }
@@ -229,13 +232,13 @@ header h1{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #999; 
+  background: #777; 
   border: 1px solid transparent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #aaa; 
 }
 
 /* .not-active {
@@ -243,14 +246,17 @@ header h1{
   cursor: default;
 } */
 
-
+header .left h1, header .left p{
+  color: black;
+}
 
 header {
   height: 15vh;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  font-family: Menlo, Monaco, "Courier New", monospace, "Consolas"
+  text-shadow: -1px -1px 0 rgba(255,255,255,0.5), 1px -1px 0 rgba(255,255,255,0.5), -1px 1px 0 rgba(255,255,255,0.5), 1px 1px 0 rgba(255,255,255,0.5);
+  color: black;
 }
 
 header p {
@@ -258,26 +264,25 @@ header p {
 }
 
 header img{
-  display: none;
   margin-top: 1vh;
   max-width: 100%;
   height: auto;
   max-height: 13vh;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5);
+  box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5);
   float: right;
 }
 
-/* #headerImage {
+#headerImage {
   background-image: url("https://pbs.twimg.com/profile_banners/734805529458020353/1516345086/1500x500");
   background-position: center;
   background-size: 100%;
-} */
+}
 
 #headerImage > div{
-  background-color: #1e1e1e;
+  background-color: #ffffff44;
 }
 
 .left {
@@ -289,7 +294,7 @@ header img{
 }
 
 nav {
-  background-color: #f8f8f8;
+  background-color: #080808;
 }
 
 .portfolioProject {
@@ -297,8 +302,8 @@ nav {
 
   overflow: hidden;
   text-align: left;
-  border: 10px solid white;
-  background-color: #f8f8f8
+  border: 10px solid black;
+  background-color: #080808
 }
 
 .portfolioProject p {
@@ -519,9 +524,5 @@ iframe.page {
 }
 
 .postBody hr {
-  border-color: black;
-}
-
-.postBody, .blogPreviewBody, #blogPostEditor > .row:last-child {
-  font-family: Georgia,serif
+  border-color: white;
 }
