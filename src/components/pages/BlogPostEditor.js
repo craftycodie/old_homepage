@@ -43,14 +43,14 @@ export default class BlogPostEditor extends React.Component {
     {
       apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
         reloadPosts();
-        this.history.push("/blog/post/" + postID);
+        this.props.history.push("/blog/post/" + postID);
       });
     }
     else
     {
       apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
         reloadPosts();
-        this.history.push("/blog/post/" + postID);
+        this.props.history.push("/blog/post/" + postID);
       });
     }
   }
