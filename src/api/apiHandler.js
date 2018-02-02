@@ -84,7 +84,7 @@ export default class ApiHandler {
         });
     }
 
-    deletePost(postID)
+    deletePost(postID, successCallback)
     {
         if(!this.isUserLogged())
             return;
@@ -97,12 +97,14 @@ export default class ApiHandler {
         .end((err, res) => {
             var success = JSON.parse(res.text).success;
             if(success)
+            {
                 alert("Deleted Post");
+                if(successCallback)
+                    successCallback(postID);
+            }
             else
                 alert("Failed to delete post: " + JSON.parse(res.text).message)
         });
-
-        this.history.push("/blog");
     }
 
     editPost(postID, newTitle, newBody, newSticky, successCallback)

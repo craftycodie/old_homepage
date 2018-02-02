@@ -47,8 +47,10 @@ export default class AdminBar extends React.Component {
         
         console.log(this.state.blogPostID);
         
-        apiHandler.deletePost(this.state.blogPostID);
-        reloadPosts();
+        apiHandler.deletePost(this.state.blogPostID, () => {
+            reloadPosts();
+            this.props.history.push("/blog")
+        });
     }
 
     editPostSubmit()
