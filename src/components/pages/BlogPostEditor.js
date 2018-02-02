@@ -41,13 +41,18 @@ export default class BlogPostEditor extends React.Component {
   {
     if(this.state.postID == null)
     {
-      apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost);
+      apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
+        reloadPosts();
+        this.history.push("/blog/post/" + postID);
+      });
     }
     else
     {
-      apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost);
+      apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
+        reloadPosts();
+        this.history.push("/blog/post/" + postID);
+      });
     }
-    reloadPosts();
   }
 
   getPostData() {

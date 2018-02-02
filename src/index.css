@@ -43,7 +43,7 @@ footer {
   overflow-y: overlay;
 }
 
-#blog, #login, #blogPost, header{
+#blog, #login, #blogPost, header, #error404 {
   width: 100%;
   max-width: 720px;
   padding-left: 5px;
@@ -395,11 +395,11 @@ ul, li {
   width: 100%;
 }
 
-a, .failedLoad span{
+a, .failedLoad span, #error404 span{
   color: #dc3545;
 }
 
-.failedLoad span:hover{
+.failedLoad span:hover, #error404 span:hover{
   color: #0056b3;
   text-decoration: underline;
   cursor: pointer;

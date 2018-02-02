@@ -105,7 +105,7 @@ export default class ApiHandler {
         this.history.push("/blog");
     }
 
-    editPost(postID, newTitle, newBody, newSticky)
+    editPost(postID, newTitle, newBody, newSticky, successCallback)
     {
         if(!this.isUserLogged())
             return;
@@ -120,12 +120,12 @@ export default class ApiHandler {
             var success = JSON.parse(res.text).success;
             if(!success)
                 alert("Failed to edit post: " + JSON.parse(res.text).message)
-            else
-                this.history.push("/blog/post/" + postID);
+            else if(successCallback)
+                successCallback(postID);
         });
     }
 
-    newPost(newTitle, newBody, newSticky)
+    newPost(newTitle, newBody, newSticky, successCallback)
     {
         if(!this.isUserLogged())
             return;
@@ -140,8 +140,8 @@ export default class ApiHandler {
             var success = JSON.parse(res.text).success;
             if(!success)
                 alert("Failed to create post: " + JSON.parse(res.text).message)
-            else
-                this.history.push("/blog/post/" + JSON.parse(res.text).data);
+            else if(successCallback)
+                    successCallback(JSON.parse(res.text).data);
         });
     }
 
