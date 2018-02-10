@@ -44,7 +44,7 @@ footer {
   overflow-y: overlay;
 }
 
-#blog, #login, #blogPost, header, #error404 {
+#blog, #login, #blogPost, header, #error404, #social{
   width: 100%;
   max-width: 720px;
   padding-left: 5px;
@@ -526,4 +526,56 @@ iframe.page {
 
 .postBody, .blogPreviewBody, #blogPostEditor > .row:last-child {
   font-family: Georgia,serif
+}
+
+img.circle {
+  border-radius: 50%;
+}
+
+#about img.profilePic{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  display: block;
+  height: 25vh;
+}
+
+/* .social {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.social img {
+  padding: 5px;
+  height: 7.5vh;
+} */
+
+#social img {
+  max-width: 250px;
+  display: block;
+  float: left;
+}
+#social p a img {
+  max-width: 77px;
+}
+#social p a {
+  padding: 5px;
+  display: inline-block;
+}
+#social p {
+  display: inline-block;
+  line-height: 0px;
+  margin-top: -5px;
+  margin-left: 5px;
+  max-width: 455px;
+}
+#social {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+iframe {
+  max-width: 100%;
 }
