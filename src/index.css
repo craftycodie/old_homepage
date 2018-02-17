@@ -42,13 +42,12 @@ footer {
   max-width: 100vw;
   overflow-y: scroll;
   overflow-y: overlay;
+  overflow-x: hidden;
 }
 
-#blog, #login, #blogPost, header, #error404, #social{
+#blog, #login, #blogPost, header, #error404, #social, #about{
   width: 100%;
   max-width: 720px;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 #blogPost{
@@ -252,7 +251,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  font-family: Menlo, Monaco, "Courier New", monospace, "Consolas"
+  font-family: Menlo, Monaco, monospace, "Consolas", "Courier New"
 }
 
 header p {
@@ -339,11 +338,11 @@ nav {
   margin-bottom: 10vh;
 }
 
-#portfolio, #about {
+#portfolio {
   width: 100%;
   max-width: 1260px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 nav > hr:first-of-type {
@@ -354,18 +353,14 @@ nav a {
   color: #dc3545;
 }
 
-#portfolio h2 {
-  padding-left: 10px;
-}
-
 h2 {
   text-align: left;
 }
 
-.row {
+/* .row {
   margin-left: 0;
   margin-right: 0;
-}
+} */
 
 ul, li {
   text-align: left;
@@ -572,10 +567,48 @@ img.circle {
   max-width: 455px;
 }
 #social {
-  padding-top: 5vh;
+  padding-top: 3vh;
   padding-bottom: 5vh;
 }
 
 iframe {
-  max-width: 100%;
+  width: 100%;
+}
+
+@media all and (max-width: 734px) {
+  #blog, #blogPost, #login, header, #error404, #social, #about{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  #social img {
+    max-width: 250px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #social p {
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 261px;
+  }
+
+  header {
+    height: 8vh;
+  }
+
+  header h1 {
+    font-size: 3.8vh;
+  }
+
+  header p {
+    display: none;
+  }
+
+  .page {
+    height: 84vh;
+  }
 }

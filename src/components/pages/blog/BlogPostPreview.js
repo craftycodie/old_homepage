@@ -27,8 +27,8 @@ export default class blogPostPreview extends React.Component {
           {ReactHtmlParser(showdownConverter.makeHtml(this.props.blogPost.body.substring(0,500) + "..."))}
         </div>
         <Link className="readMore" to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
-        <span className="right">
-          {this.props.blogPost.sticky ? <span className="readMore"><span className="badge badge-secondary">Sticky Post</span>&nbsp;</span> : ""}<small className="readMore">{createdString}</small>
+        <span className="readMore right">
+          {this.props.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span>&nbsp;</span> : ""}<small>{createdString}</small>
         </span>
         <hr/>
       </div>

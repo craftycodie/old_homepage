@@ -13,7 +13,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Skirmish</h4>
 								<p>Codename Raider.<br/>An online shooter.<br/><span className="badge badge-danger">C#</span> <span className="badge badge-danger">MongoDB</span> <span className="badge badge-danger">C++</span> <span className="badge badge-secondary">NodeJS</span> <span className="badge badge-secondary">JavaScript</span> <span className="badge badge-secondary">HLSL</span><br/>
-								<Link to="/blog/post/5a665f2d66109e03df668eed">Read Blog Post >></Link></p>
+								{/* <Link to="/blog/post/5a665f2d66109e03df668eed">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://imgur.com/0KllZrM.png"/>
@@ -23,7 +24,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Banshee</h4>
 								<p>A Beta Minecraft modpack adding many features from newer releases.<br/><span className="badge badge-danger">Java</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">NodeJS</span>
-								<br/><Link to="/blog/post/5a665f4366109e03df668eef">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665f4366109e03df668eef">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://d1u5p3l4wpay3k.cloudfront.net/minecraft_gamepedia/c/c5/Grass.png?version=1a75eca30650951561b33abec9685f50"/>
@@ -33,7 +35,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Marathon</h4>
 								<p>Minecraft Server Management Tool<br/>My first solution!<br/><span className="badge badge-danger">C#</span> <span className="badge badge-secondary">VB</span>
-								<br/><Link to="/blog/post/5a665f5a66109e03df668ef0">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665f5a66109e03df668ef0">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
@@ -43,7 +46,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Foundry</h4>
 								<p>A tool for editing Halo: Online maps variants.<br/><span className="badge badge-danger">C#</span> <span className="badge badge-secondary">C++</span>
-								<br/><Link to="/blog/post/5a665f6766109e03df668ef2">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665f6766109e03df668ef2">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://image.prntscr.com/image/r9wTVdpOTdiqq7CzdTU9nA.png"/>
@@ -53,7 +57,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Minecord</h4>
 								<p>A Minecraft &lt;---&gt; Discord chat bot.<br/><span className="badge badge-danger">Java</span> <span className="badge badge-danger">Maven</span> <span className="badge badge-secondary">DiscordAPI</span>
-								<br/><Link to="/blog/post/5a665f7966109e03df668ef3">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665f7966109e03df668ef3">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src=""/>
@@ -63,7 +68,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Homepage</h4>
 								<p>MERN stack single page site with basic blog api.<br/><span className="badge badge-danger">ReactJS</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">MongoDB</span> <span className="badge badge-secondary">Express</span> <span className="badge badge-secondary">NodeJS</span>
-								<br/><Link to="/blog/post/5a665f7966109e03df668ef3">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665f7966109e03df668ef3">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src=""/>
@@ -73,7 +79,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>themeScape</h4>
 								<p>An application and site for managing and sharing wallpapers.<br/><span className="badge badge-danger">PHP</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">C#</span>
-								<br/><Link to="/blog/post/5a665fa266109e03df668ef6">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665fa266109e03df668ef6">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://i.imgur.com/W5NVZtx.png"/>
@@ -147,7 +154,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h4>Mold.Agency</h4>
 								<p>Backend Web Developer<br/>Peterborough, 2017<br/><span className="badge badge-danger">NodeJS</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-secondary">MongoDB</span> <span className="badge badge-secondary">MySQL</span> <span className="badge badge-secondary">PHP</span>
-								<br/><Link to="/blog/post/5a665fbf66109e03df668ef7">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665fbf66109e03df668ef7">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="http://www.gophantoms.co.uk/wp-content/uploads/2017/08/mold-logo-pink.png"/>
@@ -171,7 +179,8 @@ export default class Portfolio extends React.Component {
 							<div className="left">
 								<h3>Peterborough Regional College</h3>
 								<p>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017<br/><span className="badge badge-danger">C#</span> <span className="badge badge-danger">PHP</span> <span className="badge badge-danger">C</span> <span className="badge badge-secondary">Python</span> <span className="badge badge-secondary">C++</span> <span className="badge badge-secondary">Assembly</span>
-								<br/><Link to="/blog/post/5a665fd966109e03df668ef8">Read Blog Post >></Link></p>
+								{/* <br/><Link to="/blog/post/5a665fd966109e03df668ef8">Read Blog Post >></Link> */}
+								</p>
 							</div>
 							<div className="right">
 								<img src="https://www.studenthut.com/sites/default/files/styles/drudesk_profile/public/university_logo%E2%80%8E_folder_158?itok=lNBX1Oi8"/>
