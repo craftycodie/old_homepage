@@ -7,11 +7,11 @@ export default class Navigation extends React.Component {
     return (
       <nav>
         <hr/>
-        <Link to="/">Portfolio</Link>
+        {this.props.location.pathname != "/" ? <Link to="/">Portfolio</Link> : <span>Portfolio</span>}
         <span> | </span>
-        <Link to="/blog">Blog</Link>
+        {this.props.location.pathname != "/blog" ? <Link to="/blog">Blog</Link> : <span>Blog</span>}
         <span> | </span>
-        <Link to="/about">About</Link>
+        {this.props.location.pathname != "/about" ? <Link to="/about">About</Link> : <span>About</span>}
         <hr/>
       </nav>
     );

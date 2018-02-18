@@ -99,7 +99,7 @@ export default class App extends React.Component {
       <div className="App">
       <Konami history={this.props.history}/>
       <AdminBar history={this.props.history} location={this.props.location}/>
-      <Header />
+      <Header location={this.props.location}/>
       <TransitionGroup id="pageContainer" childFactory={childFactoryCreator(getAnimationClassName(this.props.location))}>
         <CSSTransition key={this.props.location.key} timeout={500}>
         <Switch location={this.props.location}>

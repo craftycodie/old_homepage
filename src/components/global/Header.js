@@ -40,7 +40,7 @@ export default class Header extends React.Component {
                         </header>
                     </div>
                 </div>
-                <Navigation />
+                <Navigation location={this.props.location}/>
             </div>
         );
     }
