@@ -49,8 +49,6 @@ export default class About extends React.Component {
                 I had the opportuity to get some experience as a software developer at Automatic Data Processing, and then at Mold Agency. Two very different organizations, both very enjoyable.
                 <br/><br/>
                 These days I'm still learning, working on as many projects as I can in my spare time and making the most of university.
-                <br/><br/>
-                (I am looking for a job though! Hit me up!)
               </p>
           <div className="row">
             <div className="col-md-6">

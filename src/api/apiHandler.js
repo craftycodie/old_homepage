@@ -149,6 +149,7 @@ export default class ApiHandler {
 
     recentPosts(at, count, success, error)
     {
+        console.log("fetching recent posts.")
         fetch(this.apiConfig.recentPostsRoute 
         + this.buildQueryString({
             at: at,

@@ -112,13 +112,22 @@ function loadRecentPosts()
       return;
     }
    
+
     var newPosts = [];
 
     if(typeof(j.data.length) === "undefined" || j.data.length < count)
       loadedAllRecentPosts = true;
 
     j.data.forEach(blogPost => {
-      newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
+      var alreadyLoaded = false;
+      recentPosts.forEach(blogPostElement => {
+        if(blogPostElement.key == blogPost._id)
+        {
+          alreadyLoaded = true;
+        }
+      })
+      if(!alreadyLoaded)
+        newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
     });
 
     recentPosts = recentPosts.concat(newPosts);
@@ -234,19 +243,28 @@ export default class Blog extends React.Component {
       }
 
       if(this.state.recentPostsRequestFailedCount < 3)
+      {
         this.loadRecentPosts();
+      }
     }
     else
     {
-      recentPostsRender =
-        <InfiniteScroll 
-          next={this.loadPosts}
-          hasMore={!loadedAllRecentPosts}
-          loader={<h1>Loading Posts...</h1>}
-          scrollableTargetID="blogScrollableTarget"
-        >
-          {this.state.recentPosts}
-        </InfiniteScroll>;
+      if(this.state.recentPosts.length < 1 && this.state.loadedStickyPosts && this.state.stickyPosts.length < 1)
+      {
+        recentPostsRender = <h1>Oh no! There's no posts yet!</h1>;
+      }
+      else
+      {
+        recentPostsRender =
+          <InfiniteScroll 
+            next={this.loadPosts}
+            hasMore={!loadedAllRecentPosts}
+            loader={<h1>Loading Posts...</h1>}
+            scrollableTargetID="blogScrollableTarget"
+          >
+            {this.state.recentPosts}
+          </InfiniteScroll>;
+      }
     }
 
     console.log("rendering blog with " + this.state.stickyPosts.length + " sticky posts and " + this.state.recentPosts.length + " recent posts");
