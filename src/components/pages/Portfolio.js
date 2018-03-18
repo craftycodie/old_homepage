@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 export default class Portfolio extends React.Component {
   render() {
@@ -17,7 +17,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://imgur.com/0KllZrM.png"/>
+								<img alt="Skirmish Icon" src="https://imgur.com/0KllZrM.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -28,7 +28,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://d1u5p3l4wpay3k.cloudfront.net/minecraft_gamepedia/c/c5/Grass.png?version=1a75eca30650951561b33abec9685f50"/>
+								<img alt="Banshee Icon" src="https://d1u5p3l4wpay3k.cloudfront.net/minecraft_gamepedia/c/c5/Grass.png?version=1a75eca30650951561b33abec9685f50"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -39,7 +39,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
+								<img alt="Marathon Icon" src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -50,7 +50,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://image.prntscr.com/image/r9wTVdpOTdiqq7CzdTU9nA.png"/>
+								<img alt="Foundry Icon" src="https://image.prntscr.com/image/r9wTVdpOTdiqq7CzdTU9nA.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -61,7 +61,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src=""/>
+								<img alt="" src=""/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -72,7 +72,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src=""/>
+								<img alt="Marathon Icon" src="/favicon.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -83,7 +83,18 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://i.imgur.com/W5NVZtx.png"/>
+								<img alt="themeScape Icon" src="https://i.imgur.com/W5NVZtx.png"/>
+							</div>
+						</div>
+						<div className="col-md-6 portfolioProject">
+							<div className="left">
+								<h4>Armour Customizer</h4>
+								<p>A simple WPF application to help Halo: Online players edit their settings.<br/><span className="badge badge-danger">WPF</span> <span className="badge badge-danger">C#</span>
+								{/* <br/><Link to="/blog/post/5a665fa266109e03df668ef6">Read Blog Post >></Link> */}
+								</p>
+							</div>
+							<div className="right">
+								<img alt="Marathon Icon" src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -92,7 +103,7 @@ export default class Portfolio extends React.Component {
 								<p>Research project, creating patches to explore and modify an unreleased Unity game.<br/><span className="badge badge-danger">.NET CIL</span> <span className="badge badge-danger">C#</span></p>
 							</div>
 							<div className="right">
-								<img src=""/>
+								<img alt="" src=""/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -101,7 +112,7 @@ export default class Portfolio extends React.Component {
 								<p>A simple minecraft server plugin for void teleportation.<br/><span className="badge badge-danger">Java</span> <span className="badge badge-danger">Maven</span></p>
 							</div>
 							<div className="right">
-								<img src="https://"/>
+								<img alt="" src="https://"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -110,7 +121,7 @@ export default class Portfolio extends React.Component {
 								<p>Many research projects, game mods and other misc projects.<br/><span className="badge badge-danger">LUA</span></p>
 							</div>
 							<div className="right">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tab_plus.svg/2000px-Tab_plus.svg.png"/>
+								<img alt="Plus Icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tab_plus.svg/2000px-Tab_plus.svg.png"/>
 							</div>
 						</div>
 					</div>
@@ -124,16 +135,16 @@ export default class Portfolio extends React.Component {
 								<p>Halo themed solo and multiplayer PC game.<br/>In Development.<br/><span className="badge badge-danger">C#</span></p>
 							</div>
 							<div className="right">
-								<img src="https://media.discordapp.net/attachments/324967267483779072/404097123236315136/SupernovaSmallwShadow.png?width=1124&height=1036"/>
+								<img alt="Supernova Icon" src="https://media.discordapp.net/attachments/324967267483779072/404097123236315136/SupernovaSmallwShadow.png?width=1124&height=1036"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
 								<h4>Undisclosed Projects</h4>
-								<p>Additional projects I can't discuss.<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">C#</span> <span className="badge badge-danger">Reverse Engineering</span> <span className="badge badge-secondary">x86 Assembly</span> <span className="badge badge-secondary">JavaScript</span></p>
+								<p>Additional projects I can't discuss.<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">x86 Assembly</span> <span className="badge badge-secondary">Reverse Engineering</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">JavaScript</span></p>
 							</div>
 							<div className="right">
-								<img src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
+								<img alt="?" src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
 							</div>
 						</div>
 					</div>
@@ -147,7 +158,7 @@ export default class Portfolio extends React.Component {
 							<p>Software Development Intern<br/>Peterborough, 2016<br/><span className="badge badge-danger">Agile Scrum</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">Selenium</span> <span className="badge badge-secondary">NodeJS</span></p>
 							</div>
 							<div className="right">
-								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Automatic_Data_Processing_%28logo%29.svg/1280px-Automatic_Data_Processing_%28logo%29.svg.png"/>
+								<img alt="ADP Logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Automatic_Data_Processing_%28logo%29.svg/1280px-Automatic_Data_Processing_%28logo%29.svg.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -158,7 +169,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="http://www.gophantoms.co.uk/wp-content/uploads/2017/08/mold-logo-pink.png"/>
+								<img alt="Mold Logo" src="http://www.gophantoms.co.uk/wp-content/uploads/2017/08/mold-logo-pink.png"/>
 							</div>
 						</div>
 					</div>
@@ -172,7 +183,7 @@ export default class Portfolio extends React.Component {
 								<p>Masters in Computing Sciences<br/>Norwich, 2017 (Ongoing)<br/><span className="badge badge-danger">Python</span> <span className="badge badge-danger">Java</span> <span className="badge badge-secondary">JavaScript</span></p>
 							</div>
 							<div className="right">
-								<img src="https://www.uea.ac.uk/documents/2654296/0/UEA_NEW_BRAND_Magenta.png/b14edc4b-c4ca-4197-bee9-7e3a562027ca?t=1455793092763"/>
+								<img alt="UEA Logo" src="https://www.uea.ac.uk/documents/2654296/0/UEA_NEW_BRAND_Magenta.png/b14edc4b-c4ca-4197-bee9-7e3a562027ca?t=1455793092763"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -183,7 +194,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img src="https://www.studenthut.com/sites/default/files/styles/drudesk_profile/public/university_logo%E2%80%8E_folder_158?itok=lNBX1Oi8"/>
+								<img alt="PRC Logo" src="https://www.studenthut.com/sites/default/files/styles/drudesk_profile/public/university_logo%E2%80%8E_folder_158?itok=lNBX1Oi8"/>
 							</div>
 						</div>
 					</div>

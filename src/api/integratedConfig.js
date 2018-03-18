@@ -10,6 +10,7 @@ integratedConfig.postsRoute = integratedConfig.blogRoute + "/posts";
 
 integratedConfig.stickyPostsRoute = integratedConfig.postsRoute + "/sticky";
 integratedConfig.recentPostsRoute = integratedConfig.postsRoute + "/recent";
+integratedConfig.draftPostsRoute = integratedConfig.postsRoute + "/drafts";
 
 
 integratedConfig.postRoute = integratedConfig.blogRoute + "/post";

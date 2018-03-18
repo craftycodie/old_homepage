@@ -20,7 +20,9 @@ export default class Header extends React.Component {
                                     <b>
                                         <span style={{color:"#d7ba7d"}}>#Norwich</span>
                                         <span style={{color:"#d4d4d4"}}>{" {} "}</span>
-                                        <span style={{color:"#608b4e"}}>/* Software Engineer */</span>
+                                        <span style={{color:"#608b4e"}}
+                                        // eslint-disable-next-line
+                                        >/* Software Engineer */</span>
                                         </b>
                                     <br/>
                                     <span style={{color:"#808080"}}>{"<"}</span>
@@ -30,13 +32,15 @@ export default class Header extends React.Component {
                                     <span style={{color:"#ce9178"}}>"UEA" </span>
                                     <span style={{color:"#808080"}}>{"/>"} </span>
                                     <span style={{color:"#569cd6"}}>{"{"}</span>
-                                    <span style={{color:"#608b4e"}}>/* Other things. */</span>
+                                    <span style={{color:"#608b4e"}}
+                                    // eslint-disable-next-line
+                                    >/* Other things. */</span>
                                     <span style={{color:"#569cd6"}}>{"}"}</span>
                                 </p>
                             </div>
-                            <div className="right">
+                            {/* <div className="right">
                                 <img src="https://pbs.twimg.com/profile_images/954254230314979328/ISO3BgXP_400x400.jpg"/>
-                            </div>
+                            </div> */}
                         </header>
                     </div>
                 </div>

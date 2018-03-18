@@ -28,7 +28,7 @@ export default class blogPostPreview extends React.Component {
         </div>
         <Link className="readMore" to={"blog/post/" + this.props.blogPost._id}>Read More >></Link>
         <span className="readMore right">
-          {this.props.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span>&nbsp;</span> : ""}<small>{createdString}</small>
+        {this.props.blogPost.draft ? <span><span className="badge badge-secondary">Draft </span>&nbsp;</span> : ""}{this.props.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span>&nbsp;</span> : ""}<small>{createdString}</small>
         </span>
         <hr/>
       </div>

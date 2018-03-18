@@ -107,14 +107,14 @@ export default class ApiHandler {
         });
     }
 
-    editPost(postID, newTitle, newBody, newSticky, successCallback)
+    editPost(postID, newTitle, newBody, newSticky, newDraft, successCallback)
     {
         if(!this.isUserLogged())
             return;
 
         request
         .post(this.apiConfig.postRoute + "/" + postID + "/edit")
-        .send({title: newTitle, body: newBody, sticky: newSticky, tags: []})
+        .send({title: newTitle, body: newBody, sticky: newSticky, draft: newDraft, tags: []})
         .set('Authorization', this.JWT)
         .set('Accept', 'application/json')
         .set("Cache-Control", "no-cache")
@@ -127,14 +127,14 @@ export default class ApiHandler {
         });
     }
 
-    newPost(newTitle, newBody, newSticky, successCallback)
+    newPost(newTitle, newBody, newSticky, newDraft, successCallback)
     {
         if(!this.isUserLogged())
             return;
 
         request
         .post(this.apiConfig.newPostRoute)
-        .send({title: newTitle, body: newBody, sticky: newSticky, tags: []})
+        .send({title: newTitle, body: newBody, sticky: newSticky, draft: newDraft, tags: []})
         .set('Authorization', this.JWT)
         .set('Accept', 'application/json')
         .set("Cache-Control", "no-cache")
@@ -218,6 +218,39 @@ export default class ApiHandler {
         .then(j => {
             if(!j.success)
                 throw Error("Error retrieving sticky posts.");
+
+            return j;
+        })
+        .then(j => {success(j)}, () => {error()});
+    }
+
+    draftPosts(success, error)
+    {
+        //Draft posts are hidden to public.
+        //So if the user isn't logged in, dont try to load.
+        if(!this.isUserLogged())
+        {
+            error("not logged in");
+            return;
+        }
+
+        fetch(this.apiConfig.draftPostsRoute,
+        {
+            headers: {
+                "Accept": "application/json",
+                "Cache-Control": "no-cache",
+                "Authorization": this.JWT,
+            }
+        })
+        .then(response => {
+          if(!response.ok)
+            throw Error("Error retrieving draft posts.");
+          else return response;
+        })
+        .then(r => r.json())
+        .then(j => {
+            if(!j.success)
+                throw Error("Error retrieving draft posts.");
 
             return j;
         })

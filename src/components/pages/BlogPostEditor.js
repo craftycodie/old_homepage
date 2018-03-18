@@ -21,7 +21,8 @@ export default class BlogPostEditor extends React.Component {
       loadedPost: false, 
       postBody: "", 
       postTitle: "", 
-      stickyPost: false, 
+      stickyPost: false,
+      draftPost: false,
       errorCount: 0
     };
   
@@ -32,7 +33,7 @@ export default class BlogPostEditor extends React.Component {
   handleChange(event) {
     var obj = {};
     obj[event.target.id] = event.target.value;
-    if(event.target.id == "stickyPost")
+    if(event.target.id === "stickyPost" || event.target.id === "draftPost")
       obj[event.target.id] = event.target.checked;
     this.setState(obj);
   }
@@ -41,14 +42,14 @@ export default class BlogPostEditor extends React.Component {
   {
     if(this.state.postID == null)
     {
-      apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
+      apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
         reloadPosts();
         this.props.history.push("/blog/post/" + postID);
       });
     }
     else
     {
-      apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, postID => {
+      apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
         reloadPosts();
         this.props.history.push("/blog/post/" + postID);
       });
@@ -65,6 +66,7 @@ export default class BlogPostEditor extends React.Component {
           postTitle: loadedPost.props.blogPost.title,
           postBody: loadedPost.props.blogPost.body,
           stickyPost: loadedPost.props.blogPost.sticky,
+          draftPost: loadedPost.props.blogPost.draft
         });
         return;
       }
@@ -85,6 +87,7 @@ export default class BlogPostEditor extends React.Component {
             postTitle: JSON.parse(res.text).data.title,
             postBody: JSON.parse(res.text).data.body,
             stickyPost: JSON.parse(res.text).data.sticky,
+            draftPost: JSON.parse(res.text).data.draft
           });
         }, 500);
       }
@@ -130,10 +133,14 @@ export default class BlogPostEditor extends React.Component {
             <input value={this.state.postTitle} onChange={this.handleChange} id="postTitle" type="text"/>
           </div>
           <div className="col-md-6">
-            {this.state.stickyPost ? 
-              <span>Sticky Post <input checked onChange={this.handleChange} id="stickyPost" type="checkbox"/></span>
+          {this.state.draftPost ? 
+              <span>Draft <input checked onChange={this.handleChange} id="draftPost" type="checkbox"/></span>
               :
-            <span>Sticky Post <input onChange={this.handleChange} id="stickyPost" type="checkbox"/></span>}
+            <span>Draft <input onChange={this.handleChange} id="draftPost" type="checkbox"/></span>}
+            {this.state.stickyPost ? 
+              <span>Sticky <input checked onChange={this.handleChange} id="stickyPost" type="checkbox"/></span>
+              :
+            <span>Sticky <input onChange={this.handleChange} id="stickyPost" type="checkbox"/></span>}
             <button onClick={this.submitPostData} className="right">Submit</button>
           </div>
         </div>

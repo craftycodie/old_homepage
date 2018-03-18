@@ -10,6 +10,7 @@ localConfig.postsRoute = localConfig.blogRoute + "/posts";
 
 localConfig.stickyPostsRoute = localConfig.postsRoute + "/sticky";
 localConfig.recentPostsRoute = localConfig.postsRoute + "/recent";
+localConfig.draftPostsRoute = localConfig.postsRoute + "/drafts";
 
 
 localConfig.postRoute = localConfig.blogRoute + "/post";

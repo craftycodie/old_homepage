@@ -7,24 +7,28 @@ import { apiHandler } from "../../App";
 
 let recentPosts = [];
 let stickyPosts = [];
+let draftPosts = [];
 let loadedAllRecentPosts = false;
 let loadedStickyPosts = false;
 let loadedRecentPosts = false;
+let loadedDraftPosts = false;
 
 export function reloadPosts()
 {
   recentPosts = [];
   stickyPosts = [];
+  draftPosts = [];
   loadedAllRecentPosts = false;
   loadedStickyPosts = false;
   loadedRecentPosts = false;
+  loadedDraftPosts = false;
 
   loadPosts();
 }
 
 export function getAllLoadedPosts()
 {
-  return recentPosts.concat(stickyPosts);
+  return recentPosts.concat(stickyPosts).concat(draftPosts);
 }
 
 export function loadPosts() {
@@ -32,6 +36,9 @@ export function loadPosts() {
   {
     if(!loadedStickyPosts)
       this.loadStickyPosts();
+
+    if(!loadedDraftPosts)
+      this.loadDraftPosts();
       
     this.loadRecentPosts();
   }
@@ -39,6 +46,9 @@ export function loadPosts() {
   {
     if(!loadedStickyPosts)
       loadStickyPosts();
+
+    if(!loadedDraftPosts)
+      loadDraftPosts();
       
     loadRecentPosts();
   }
@@ -90,6 +100,52 @@ function loadStickyPosts()
   });
 }
 
+function loadDraftPosts()
+{
+  if(loadedDraftPosts)
+    return;
+
+  apiHandler.draftPosts(j => {
+
+    if(loadedDraftPosts)
+    {
+      if(this)
+      {
+        this.setState({
+          draftPosts: draftPosts
+        })
+      }
+
+      return;
+    }
+
+    var newPosts = [];
+
+    j.data.forEach(blogPost => {
+      newPosts.push(<BlogPostPreview key={blogPost._id} blogPost={blogPost}/>)
+    });
+
+    draftPosts = newPosts;
+
+    loadedDraftPosts = true;
+
+    if(this)
+    {
+      this.setState({
+        draftPosts: draftPosts
+      })
+    }
+  }, () => {
+    if(this)
+    {
+      this.setState({
+        draftPostsRequestFailed: true,
+        draftPostsRequestFailedCount: this.state.draftPostsRequestFailedCount + 1
+      })
+    }
+  });
+}
+
 function loadRecentPosts()
 {
   if(loadedAllRecentPosts)
@@ -121,7 +177,7 @@ function loadRecentPosts()
     j.data.forEach(blogPost => {
       var alreadyLoaded = false;
       recentPosts.forEach(blogPostElement => {
-        if(blogPostElement.key == blogPost._id)
+        if(blogPostElement.key === blogPost._id)
         {
           alreadyLoaded = true;
         }
@@ -163,23 +219,28 @@ export default class Blog extends React.Component {
       recentPostsRequestFailedCount: 0,
       stickyPostsRequestFailed: false,
       stickyPostsRequestFailedCount: 0,
+      draftPostsRequestFailed: false,
+      draftPostsRequestFailedCount: 0,
       recentPosts: recentPosts,
-      stickyPosts: stickyPosts
+      stickyPosts: stickyPosts,
+      draftPosts: draftPosts
     };
 
     this.loadRecentPosts = loadRecentPosts.bind(this);
     this.loadStickyPosts = loadStickyPosts.bind(this);
+    this.loadDraftPosts = loadDraftPosts.bind(this);
     this.loadPosts = loadPosts.bind(this);
   }
 
   render() {
 
-    if(!loadedRecentPosts && !loadedRecentPosts && this.state.stickyPostsRequestFailedCount > 3 && this.state.recentPostsRequestFailedCount > 3)
+    if(!loadedRecentPosts && !loadedRecentPosts && !loadedDraftPosts
+      && this.state.stickyPostsRequestFailedCount > 3 && this.state.recentPostsRequestFailedCount > 3 && this.state.draftPostsRequestFailedCount > 3)
     {
       return (
         <div id="blogScrollableTarget" className="page">
           <div id="blog" className="centerMargins failedLoad">
-            <h1>Blog posts are currently unavailable.</h1>
+            <h2>Blog posts are currently unavailable.</h2>
             <p>
               The blog may be down for maintainence. 
               <br/>
@@ -201,7 +262,7 @@ export default class Blog extends React.Component {
       {
         stickyPostsRender =
           <div>
-            <h1>Failed to load Sticky Posts.</h1>
+            <h2>Failed to load Sticky Posts.</h2>
             <h3>
               Trying
                 {" "}{3 - this.state.stickyPostsRequestFailedCount >= 0 ? 3 - this.state.stickyPostsRequestFailedCount : 0}{" "}
@@ -211,7 +272,7 @@ export default class Blog extends React.Component {
       }
       else
       {
-        stickyPostsRender = <h1>Loading Sticky Posts...</h1>;
+        stickyPostsRender = <h2>Loading Sticky Posts...</h2>;
       }
 
       if(this.state.stickyPostsRequestFailedCount < 3)
@@ -222,6 +283,34 @@ export default class Blog extends React.Component {
       stickyPostsRender = this.state.stickyPosts;
     }
 
+    var draftPostsRender;
+    if(!loadedDraftPosts)
+    {
+      if(this.state.draftPostsRequestFailedCount)
+      {
+        draftPostsRender =
+          <div>
+            <h2>Failed to load Draft Posts.</h2>
+            <h3>
+              Trying
+                {" "}{3 - this.state.draftPostsRequestFailedCount >= 0 ? 3 - this.state.draftPostsRequestFailedCount : 0}{" "}
+              more times...
+            </h3>
+          </div>;
+      }
+      else
+      {
+        draftPostsRender = <h2>Loading Draft Posts...</h2>;
+      }
+
+      if(this.state.draftPostsRequestFailedCount < 3)
+        this.loadDraftPosts();
+    }
+    else
+    {
+      draftPostsRender = this.state.draftPosts;
+    }
+
     var recentPostsRender;
     if(!loadedRecentPosts)
     {
@@ -229,7 +318,7 @@ export default class Blog extends React.Component {
       {
         recentPostsRender =
           <div>
-            <h1>Failed to load Recent Posts.</h1>
+            <h2>Failed to load Recent Posts.</h2>
             <h3>
               Trying
                 {" "}{3 - this.state.recentPostsRequestFailedCount >= 0 ? 3 - this.state.recentPostsRequestFailedCount : 0}{" "}
@@ -239,7 +328,7 @@ export default class Blog extends React.Component {
       }
       else
       {
-        recentPostsRender = <h1>Loading Posts...</h1>;
+        recentPostsRender = <h2>Loading Recent Posts...</h2>;
       }
 
       if(this.state.recentPostsRequestFailedCount < 3)
@@ -267,11 +356,12 @@ export default class Blog extends React.Component {
       }
     }
 
-    console.log("rendering blog with " + this.state.stickyPosts.length + " sticky posts and " + this.state.recentPosts.length + " recent posts");
+    console.log("rendering blog with " + this.state.stickyPosts.length + " sticky posts and " + this.state.recentPosts.length + " recent posts and " +this.state.draftPosts.length + " draft posts");
 
     return (
       <div id="blogScrollableTarget" className="page">
         <div id="blog" className="centerMargins">
+          {apiHandler.isUserLogged() ? draftPostsRender : ""}
           {stickyPostsRender}
           {recentPostsRender}
         </div>

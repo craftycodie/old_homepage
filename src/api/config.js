@@ -10,6 +10,7 @@ export default ApiConfig =
 
     stickyPostsRoute = postsRoute + "",
     recentPostsRoute = postsRoute + "",
+    draftPostsRoute = postsRoute + "",
 
 
     postRoute = blogRoute + "",

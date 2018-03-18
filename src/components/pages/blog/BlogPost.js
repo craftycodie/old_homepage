@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
 import { getAllLoadedPosts } from "../Blog"
-import request from "superagent"
 import ReactHtmlParser from 'react-html-parser';
 import { apiHandler, showdownConverter } from "../../../App";
 
@@ -109,7 +108,7 @@ export default class BlogPostPreview extends React.Component {
           <hr/>
           <Link to={"/blog"}>&lt;&lt; Back to Blog</Link>
           <span className="right">
-            {this.state.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span> </span> : ""}<small>{createdString}</small>
+          {this.state.blogPost.draft ? <span><span className="badge badge-secondary">Draft </span> </span> : ""}{this.state.blogPost.sticky ? <span><span className="badge badge-secondary">Sticky Post</span> </span> : ""}<small>{createdString}</small>
           </span>
         </div>
       </div>
