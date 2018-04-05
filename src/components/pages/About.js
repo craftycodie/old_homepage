@@ -12,7 +12,7 @@ export default class About extends React.Component {
     <div className="page">
         <div id="social" className="centerMargins">
           <div>
-            <img alt="portrait" className="profilePic" src="https://pbs.twimg.com/profile_images/954254230314979328/ISO3BgXP_400x400.jpg"/>
+            <img alt="portrait" className="profilePic" src="me.jpg"/>
           </div>
         <p>
             {/* <img src="/social/if_2018_social_media_popular_app_logo_googleplus_2894409.png"/> */}
@@ -36,7 +36,7 @@ export default class About extends React.Component {
         </div>
         <div id="about" className="centerMargins">
               <h2>About Me</h2>
-              <p>Hello, World! I'm Alex, a Computing Sciences student from Lincolnshire. I'm currently staying in Norwich while I study at the Universiy of East Anglia.
+              <p>Hello, World! I'm Alex, a Computing Sciences student in Norwich, studying at the Universiy of East Anglia.
                 I'm a fan of some nerdy things, comics and cartoons. I also enjoy lots of music and podcasts, and I love to stay creative.
                 <br/><br/>
                 <h3>A Brief History of My Time as a Developer</h3>
