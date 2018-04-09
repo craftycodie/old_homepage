@@ -31,6 +31,7 @@ export default class About extends React.Component {
             <a href="https://discordapp.com/invite/zMK7eFs"><img alt="Discord" src="/social/if_2018_social_media_popular_app_logo-discord_2894416.png"/></a>
             <a href="https://github.com/Alex-231"><img alt="GitHub" src="/social/github.png"/></a>
             <a href="mailto:alex@alexnewark.co.uk"><img alt="E-Mail" src="/social/email.png"/></a>
+            <a href="https://www.linkedin.com/in/alexnewark/"><img alt="LinkedIn" src="/social/linkedin-logo.png"/></a>
             {/* <img src="/social/"/> */}
             </p>
         </div>
