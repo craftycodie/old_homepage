@@ -28,7 +28,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img alt="Banshee Icon" src="https://d1u5p3l4wpay3k.cloudfront.net/minecraft_gamepedia/c/c5/Grass.png?version=1a75eca30650951561b33abec9685f50"/>
+								
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -39,7 +39,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img alt="Marathon Icon" src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
+							<img alt="Marathon Icon" src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -78,7 +78,7 @@ export default class Portfolio extends React.Component {
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
 								<h4>themeScape</h4>
-								<p>An application and site for managing and sharing wallpapers.<br/><span className="badge badge-danger">PHP</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">C#</span>
+								<p>A web, desktop and Mobile application for managing and sharing wallpapers.<br/><span className="badge badge-danger">PHP</span> <span className="badge badge-danger">JavaScript</span> <span className="badge badge-danger">C#</span>
 								{/* <br/><Link to="/blog/post/5a665fa266109e03df668ef6">Read Blog Post >></Link> */}
 								</p>
 							</div>
@@ -94,7 +94,7 @@ export default class Portfolio extends React.Component {
 								</p>
 							</div>
 							<div className="right">
-								<img alt="Marathon Icon" src="https://image.prntscr.com/image/U4JHLS-lTw6EQ2Zrj2_RZg.png"/>
+								
 							</div>
 						</div>
 						<div className="col-md-6 portfolioProject">
@@ -141,7 +141,7 @@ export default class Portfolio extends React.Component {
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
 								<h4>Undisclosed Projects</h4>
-								<p>Additional projects I can't discuss.<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">x86 Assembly</span> <span className="badge badge-secondary">Reverse Engineering</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">JavaScript</span></p>
+								<p>Additional projects I can't talk about yet :(<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">x86 Assembly</span> <span className="badge badge-secondary">Reverse Engineering</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">JavaScript</span></p>
 							</div>
 							<div className="right">
 								<img alt="?" src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>

@@ -19,19 +19,19 @@ export default class About extends React.Component {
             {/* <img src="/social/if_2018_social_media_popular_app_logo_instagram_2895177.png"/>
             <img src="/social/if_2018_social_media_popular_app_logo_linkedin_2894410.png"/>
             <img src="/social/if_2018_social_media_popular_app_logo_messenger_2894411.png"/> */}
-            <a href="https://www.pinterest.co.uk/alexnewark/"><img alt="Pinterest" src="/social/if_2018_social_media_popular_app_logo_pinterest_2894412.png"/></a>
-            <a href="https://www.reddit.com/user/Alex_231/"><img alt="Reddit" src="/social/if_2018_social_media_popular_app_logo_reddit_2894413.png"/></a>
-            <a href="skype:live:alexnewark_2?add"><img alt="Skype" src="/social/if_2018_social_media_popular_app_logo_skype_2894414.png"/></a>
+            <a href="https://www.pinterest.co.uk/alexnewark/"><img alt="Pinterest" src="/social/pinterest.png"/></a>
+            <a href="https://www.reddit.com/user/Alex_231/"><img alt="Reddit" src="/social/reddit.png"/></a>
+            <a href="skype:live:alexnewark_2?add"><img alt="Skype" src="/social/skype.png"/></a>
             {/* <img src="/social/if_2018_social_media_popular_app_logo_tumblr_2894419.png"/> */}
-            <a href="https://twitter.com/Alex231_"><img alt="Twitter" src="/social/if_2018_social_media_popular_app_logo_twitter_2895134.png"/></a>
+            <a href="https://twitter.com/Alex231_"><img alt="Twitter" src="/social/twitter.png"/></a>
             {/* <img src="/social/if_2018_social_media_popular_app_logo_vine_2894418.png"/> */}
-            <a href="https://www.youtube.com/user/A13x231"><img alt="YouTube" src="/social/if_2018_social_media_popular_app_logo_youtube_2895135.png"/></a>
-            <a href="https://open.spotify.com/user/a13x231"><img alt="Spotify" src="/social/spotify-logo.jpg"/></a>
+            <a href="https://www.youtube.com/user/A13x231"><img alt="YouTube" src="/social/youtube.png"/></a>
+            <a href="https://open.spotify.com/user/a13x231"><img alt="Spotify" src="/social/spotify.jpg"/></a>
             {/* <img src="/social/if_2018_social_media_popular_app_logo-whatsapp_2894416.png"/> */}
-            <a href="https://discordapp.com/invite/zMK7eFs"><img alt="Discord" src="/social/if_2018_social_media_popular_app_logo-discord_2894416.png"/></a>
+            <a href="https://discordapp.com/invite/zMK7eFs"><img alt="Discord" src="/social/discord.png"/></a>
             <a href="https://github.com/Alex-231"><img alt="GitHub" src="/social/github.png"/></a>
+            <a href="https://www.linkedin.com/in/alexnewark/"><img alt="LinkedIn" src="/social/linkedin.png"/></a>
             <a href="mailto:alex@alexnewark.co.uk"><img alt="E-Mail" src="/social/email.png"/></a>
-            <a href="https://www.linkedin.com/in/alexnewark/"><img alt="LinkedIn" src="/social/linkedin-logo.png"/></a>
             {/* <img src="/social/"/> */}
             </p>
         </div>
@@ -39,7 +39,6 @@ export default class About extends React.Component {
               <h2>About Me</h2>
               <p>Hello, World! I'm Alex, a Computing Sciences student in Norwich, studying at the Universiy of East Anglia.
                 I'm a fan of some nerdy things, comics and cartoons. I also enjoy lots of music and podcasts, and I love to stay creative.
-                <br/><br/>
                 <h3>A Brief History of My Time as a Developer</h3>
                 I began programming in my spare time while I was in school, addons for game called Garry's Mod allowed players to create LUA scripts to interact with the game and make new things. I learned to make my own scripts, then a friend swiftly introduced me to HTML, CSS and PHP.
                 I started wondering how the applications I use every day were created, which lead me to learn C#. Once I was confident, I created solutions to my friends' problems, which was mainly applications to simplify complicated tasks or blogs for students who wished to share their own content. 
