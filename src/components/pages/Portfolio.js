@@ -8,6 +8,7 @@ export default class Portfolio extends React.Component {
 			<div className="centerMargins" id="portfolio">
 				<div className="projectSection">
 					<h2>Personal Projects</h2>
+					{/*TODO: Refactor this, a lot! Projects should be components*/}
 					<div className="row">
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
@@ -131,13 +132,22 @@ export default class Portfolio extends React.Component {
 					<div className="row">
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
-								<h3>'Supernova'</h3>
+								<h3>Supernova</h3>
 								<p>Halo themed solo and multiplayer PC game.<br/>In Development.<br/><span className="badge badge-danger">C#</span></p>
 							</div>
 							<div className="right">
 								<img alt="Supernova Icon" src="https://media.discordapp.net/attachments/324967267483779072/404097123236315136/SupernovaSmallwShadow.png?width=1124&height=1036"/>
 							</div>
 						</div>
+						{/* <div className="col-md-6 portfolioProject">
+							<div className="left">
+								<h4>React Infinite Scroll Component</h4>
+								<p>Additional projects I can't talk about yet :(<br/><span className="badge badge-danger">C++</span> <span className="badge badge-danger">x86 Assembly</span> <span className="badge badge-secondary">Reverse Engineering</span> <span className="badge badge-secondary">C#</span> <span className="badge badge-secondary">JavaScript</span></p>
+							</div>
+							<div className="right">
+								<img alt="?" src="http://www.emoji.co.uk/files/mozilla-emojis/symbols-mozilla/12053-black-question-mark-ornament.png"/>
+							</div>
+						</div> */}
 						<div className="col-md-6 portfolioProject">
 							<div className="left">
 								<h4>Undisclosed Projects</h4>
