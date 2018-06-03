@@ -17,20 +17,19 @@ export default class About extends React.Component {
         <p>
             {/* <img src="/social/if_2018_social_media_popular_app_logo_googleplus_2894409.png"/> */}
             {/*<img src="/social/if_2018_social_media_popular_app_logo_messenger_2894411.png"/> */}
-            <a href="https://www.linkedin.com/in/alexnewark/"><img alt="LinkedIn" src="/social/linkedin.png"/></a>
-            <a href="https://github.com/Alex-231"><img alt="GitHub" src="/social/github.png"/></a>
-            <a href="https://twitter.com/Alex231_"><img alt="Twitter" src="/social/twitter.png"/></a>
-            <a href="https://www.youtube.com/user/A13x231"><img alt="YouTube" src="/social/youtube.png"/></a>
-            <a href="https://discordapp.com/invite/zMK7eFs"><img alt="Discord" src="/social/discord.png"/></a>
-            <a href="https://open.spotify.com/user/a13x231"><img alt="Spotify" src="/social/spotify.jpg"/></a>
-            <a href="https://www.instagram.com/alexn231/"><img alt="Instagram" src="/social/instagram.png"/></a>
-            <a href="https://www.pinterest.co.uk/alexnewark/"><img alt="Pinterest" src="/social/pinterest.png"/></a>
-            <a href="skype:live:alexnewark_2?add"><img alt="Skype" src="/social/skype.png"/></a>
+            <a href="https://www.linkedin.com/in/alexnewark/"><img alt="LinkedIn" src="/img/social/linkedin.png"/></a>
+            <a href="https://github.com/Alex-231"><img alt="GitHub" src="/img/social/github.png"/></a>
+            <a href="https://twitter.com/Alex231_"><img alt="Twitter" src="/img/social/twitter.png"/></a>
+            <a href="https://www.youtube.com/user/A13x231"><img alt="YouTube" src="/img/social/youtube.png"/></a>
+            <a href="https://discordapp.com/invite/zMK7eFs"><img alt="Discord" src="/img/social/discord.png"/></a>
+            <a href="https://open.spotify.com/user/a13x231"><img alt="Spotify" src="/img/social/spotify.jpg"/></a>
+            <a href="https://www.instagram.com/alexn231/"><img alt="Instagram" src="/img/social/instagram.png"/></a>
+            <a href="https://www.pinterest.co.uk/alexnewark/"><img alt="Pinterest" src="/img/social/pinterest.png"/></a>
+            {/* <a href="skype:live:alexnewark_2?add"><img alt="Skype" src="/img/social/skype.png"/></a> */}
             {/* <img src="/social/if_2018_social_media_popular_app_logo_tumblr_2894419.png"/> */}
             {/* <img src="/social/if_2018_social_media_popular_app_logo-whatsapp_2894416.png"/> */}
-            <a href="https://www.reddit.com/user/Alex_231/"><img alt="Reddit" src="/social/reddit.png"/></a>
-            <a href="mailto:alex@alexnewark.co.uk"><img alt="E-Mail" src="/social/email.png"/></a>
-            {/* <img src="/social/"/> */}
+            {/* <a href="https://www.reddit.com/user/Alex_231/"><img alt="Reddit" src="/img/social/reddit.png"/></a> */}
+            <a href="mailto:alex@alexnewark.co.uk"><img alt="E-Mail" src="/img/social/email.png"/></a>
             </p>
         </div>
         <div id="about" className="centerMargins">
