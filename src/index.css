@@ -55,6 +55,18 @@ footer {
   padding-bottom: 1rem;
 }
 
+.postBody table, .blogPreviewBody table, #blogPostEditor > .row:last-child table {
+  min-width: 100%;
+}
+
+.postBody td hr, .blogPreviewBody td hr, #blogPostEditor > .row:last-child td hr {
+  margin-left: -1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: -1px;
+  border-bottom:  1px solid black;
+}
+
 #blogPost h3{
   width: 100%;
 }
