@@ -28,7 +28,7 @@ export default class BlogPostPreview extends React.Component {
       }
     });
 
-    apiHandler.blogPost(this.props.match.postID,
+    apiHandler.blogPost(this.props.match.params.postID,
     j => {
       this.setState({blogPost: j.data});
     },
