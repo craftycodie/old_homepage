@@ -12,30 +12,30 @@ export default class Header extends React.Component {
                             <div className="left">
                                 <h1>
                                     <b>
-                                        <span style={{color:"#dcdcaa"}}>alexNewark</span>
-                                        <span style={{color:"#d4d4d4"}}>();</span>
+                                        <span>alexNewark</span>
+                                        <span>();</span>
                                     </b>
                                 </h1>
                                 <p>
                                     <b>
-                                        <span style={{color:"#d7ba7d"}}>#Norwich</span>
-                                        <span style={{color:"#d4d4d4"}}>{" {} "}</span>
-                                        <span style={{color:"#608b4e"}}
+                                        <span>#Norwich</span>
+                                        <span>{" {} "}</span>
+                                        <span
                                         // eslint-disable-next-line
                                         >/* Software Engineer */</span>
                                         </b>
                                     <br/>
-                                    <span style={{color:"#808080"}}>{"<"}</span>
-                                    <span style={{color:"#4ec9b0"}}>Student </span>
-                                    <span style={{color:"#9cdcfe"}}>at</span>
-                                    <span style={{color:"#d4d4d4"}}>=</span>
-                                    <span style={{color:"#ce9178"}}>"UEA" </span>
-                                    <span style={{color:"#808080"}}>{"/>"} </span>
-                                    <span style={{color:"#569cd6"}}>{"{"}</span>
-                                    <span style={{color:"#608b4e"}}
+                                    <span>{"<"}</span>
+                                    <span>Student </span>
+                                    <span>at</span>
+                                    <span>=</span>
+                                    <span>"UEA" </span>
+                                    <span>{"/>"} </span>
+                                    <span>{"{"}</span>
+                                    <span
                                     // eslint-disable-next-line
                                     >/* Other things. */</span>
-                                    <span style={{color:"#569cd6"}}>{"}"}</span>
+                                    <span>{"}"}</span>
                                 </p>
                             </div>
                             {/* <div className="right">
