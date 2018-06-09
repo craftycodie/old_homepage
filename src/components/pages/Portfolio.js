@@ -46,7 +46,7 @@ export default class Portfolio extends React.Component {
 					<h2>Education</h2>
 					<div className="row">
 						<Project name="University of East Anglia (UEA)" description={<span>Master of Computing Sciences<br/>Norwich, 2017 (Ongoing)</span>} img="./img/portfolio/uea.png" primaryTags={["Java", "Python", "MySQL"]} secondaryTags={["JavaScript"]}/>
-						<Project name="Peterborough Regional College" description={<span>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017</span>} img="./img/portfolio/prc.png" primaryTags={["C#", "PHP", "C"]} secondaryTags={["Python", "C++", "Assembly"]}/>
+						<Project name="Peterborough Regional College" blogPost="5b171ca4e2243c001487ca83" description={<span>Level 3 BTEC Extended Diploma in Software Development (D*D*D*)<br/>Peterborough, 2015 - 2017</span>} img="./img/portfolio/prc.png" primaryTags={["C#", "PHP", "C"]} secondaryTags={["Python", "C++", "Assembly"]}/>
 					</div>
 				</div>
 			</div> 
