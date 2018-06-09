@@ -11,7 +11,7 @@ export default class Portfolio extends React.Component {
 					<h2>Personal Projects</h2>
 					<div className="row">
 						<Project name="Skirmish" description={<span>Codename Raider.<br/>An online shooter.</span>} img="./img/portfolio/skirmish.png" primaryTags={["C#", "MongoDB", "C++"]} secondaryTags={["NodeJS", "JavaScript", "HLSL"]}/>
-						<Project name="Banshee" description="A Beta Minecraft modpack adding many features from newer releases." primaryTags={["Java"]} secondaryTags={["C#", "NodeJS"]}/>
+						<Project name="Banshee" blogPost="5b1bc2679ef4b300141a5993" description="A Beta Minecraft modpack adding many features from newer releases." primaryTags={["Java"]} secondaryTags={["C#", "NodeJS"]}/>
 						<Project name="Marathon" description={<span>Minecraft Server Management Tool<br/>My first solution!</span>} img="./img/portfolio/marathon.png" primaryTags={["C#"]} secondaryTags={["VB"]}/>
 						<Project name="Foundry" description="A tool for editing Halo: Online maps variants." img="./img/portfolio/foundry.png" primaryTags={["C#"]} secondaryTags={["C++"]}/>
 						<Project name="Minecord" description="A Minecraft &lt;---&gt; Discord chat bot." primaryTags={["Java", "Maven"]} secondaryTags={["Discord API"]}/>
