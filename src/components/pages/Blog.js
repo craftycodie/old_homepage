@@ -232,6 +232,18 @@ export default class Blog extends React.Component {
     this.loadPosts = loadPosts.bind(this);
   }
 
+  componentDidUpdate()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
+  componentDidMount()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
   render() {
 
     if(!loadedRecentPosts && !loadedRecentPosts && !loadedDraftPosts
