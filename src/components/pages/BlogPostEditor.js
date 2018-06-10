@@ -3,7 +3,6 @@ import { apiHandler, showdownConverter } from "../../App"
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import { getAllLoadedPosts } from "./Blog"
-import request from "superagent"
 import { reloadPosts } from "../pages/Blog";
 
 export default class BlogPostEditor extends React.Component {
@@ -72,29 +71,34 @@ export default class BlogPostEditor extends React.Component {
       }
     });
 
-    request
-    .get('http://localhost:8080/api/blog/post/' + this.props.match.params.postID)
-    .set('Accept', 'application/json')
-    .set("Cache-Control", "no-cache")
-    .end((err, res) => {
-      console.log(JSON.parse(res.text));
-      
-      if(JSON.parse(res.text).data != null)
-      {
+    apiHandler.blogPost(this.props.match.params.postID,
+      j => {
+        this.setState({blogPost: j.data});
         setTimeout(() => {
           this.setState({
             loadedPost: true, 
-            postTitle: JSON.parse(res.text).data.title,
-            postBody: JSON.parse(res.text).data.body,
-            stickyPost: JSON.parse(res.text).data.sticky,
-            draftPost: JSON.parse(res.text).data.draft
+            postTitle: j.data.title,
+            postBody: j.data.body,
+            stickyPost: j.data.sticky,
+            draftPost: j.data.draft
           });
         }, 500);
-      }
-      else{
-        this.setState({errorCount: this.state.errorCount+1})
-      }
-    });
+      },
+      () => {
+        this.setState({errorCount: this.state.errorCount + 1})
+      });
+  }
+
+  componentDidUpdate()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
+  componentDidMount()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
   }
 
   render() {

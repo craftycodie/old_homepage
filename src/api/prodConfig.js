@@ -1,6 +1,6 @@
 var prodConfig = {};
 
-prodConfig.hostname = "alexnewark.co.uk";
+prodConfig.hostname = "http://alexnewark.co.uk";
 
 prodConfig.apiRoute = prodConfig.hostname + "/api";
 
@@ -10,7 +10,7 @@ prodConfig.postsRoute = prodConfig.blogRoute + "/posts";
 
 prodConfig.stickyPostsRoute = prodConfig.postsRoute + "/sticky";
 prodConfig.recentPostsRoute = prodConfig.postsRoute + "/recent";
-
+prodConfig.draftPostsRoute = prodConfig.postsRoute + "/drafts";
 
 prodConfig.postRoute = prodConfig.blogRoute + "/post";
 

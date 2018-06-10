@@ -37,6 +37,18 @@ export default class BlogPostPreview extends React.Component {
     });
   }
 
+  componentDidUpdate()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
+  componentDidMount()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
   render() {
     if(this.state.blogPost == null)
     {

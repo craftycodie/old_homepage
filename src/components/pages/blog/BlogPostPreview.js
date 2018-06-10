@@ -8,6 +8,19 @@ function getOrdinalNum(n) {
 }
 
 export default class blogPostPreview extends React.Component {
+  
+  componentDidUpdate()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
+  componentDidMount()
+  {
+    window.hljs.initHighlighting.called = false;
+    window.hljs.initHighlighting();
+  }
+
   render() {
     var createdDate = new Date(this.props.blogPost.created);
     var createdString = 
