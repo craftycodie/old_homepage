@@ -89,18 +89,6 @@ export default class BlogPostEditor extends React.Component {
       });
   }
 
-  componentDidUpdate()
-  {
-    window.hljs.initHighlighting.called = false;
-    window.hljs.initHighlighting();
-  }
-
-  componentDidMount()
-  {
-    window.hljs.initHighlighting.called = false;
-    window.hljs.initHighlighting();
-  }
-
   render() {
     if(this.state.postID != null && !this.state.loadedPost)
     {
