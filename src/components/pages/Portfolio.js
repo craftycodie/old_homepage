@@ -18,11 +18,10 @@ export default class Portfolio extends React.Component {
 						<Project name="Homepage" description="MERN stack single page site with basic blog api." img="./img/portfolio/homepage.png" primaryTags={["React.js", "JavaScript", "MongoDB"]} secondaryTags={["Express", "NodeJS"]}/>
 						<Project name="themeScape" description="A web, desktop and Mobile application for managing and sharing wallpapers." img="./img/portfolio/themescape.png" primaryTags={["PHP", "JavaScript", "C#"]}/>
 						<Project name="Halo: Online - Armour Customizer" description="A simple WPF application to help Halo: Online players edit their settings." blogPost="5b17434ccc4d2a00144b68db" primaryTags={["WPF", "C#"]}/>
-						<Project name="Untitled (Unity Reversing)" description="Research project, creating patches to explore and modify an unreleased Unity game." primaryTags={["MSIL (CIL)", "C#"]}/>
-						<Project name="Skyfall" description="A simple minecraft server plugin for void teleportation." primaryTags={["Java", "Maven"]}/>
-						<Project name="College Projects" description="A text editor and a decorator application." primaryTags={["C#"]}/>
-						{/* <Project name="Halo: Online Fixes" description="Many bug fixes for the now cancelled PC game Halo: Online" primaryTags={["C++", "x86 Assembly"]}/> */}
 						<Project name="Halo: Online - Headhunter Proof of Concept" description="A research project, adding a gamemode to Halo: Online" img="./img/portfolio/headhunter.png" blogPost="5b171bc9e2243c001487ca7c" primaryTags={["C++", "x86 Assembly"]}/>
+						<Project name="Unity Modding" description="Modifications for Baldi's Basics in Education and Learning, and another unreleased game." blogPost="5b1c3bb52a54fd00143f9dd1" primaryTags={["MSIL (CIL)", "C#"]}/>
+						<Project name="Skyfall" description="A simple minecraft server plugin for void teleportation." primaryTags={["Java", "Maven"]}/>
+						{/* <Project name="Halo: Online Fixes" description="Many bug fixes for the now cancelled PC game Halo: Online" primaryTags={["C++", "x86 Assembly"]}/> */}
 
 						<Project name="Many More" description="Many research projects, game mods and other misc projects." img="./img/portfolio/more.png" primaryTags={["LUA"]}/>
 					</div>
