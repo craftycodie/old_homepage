@@ -37,6 +37,7 @@ export default class Portfolio extends React.Component {
 				<div className="projectSection">
 					<h2>Work Experience</h2>
 					<div className="row">
+						<Project name="Pickr" description={<span>Software Engineer<br/>Norwich, 2018</span>} img="./img/portfolio/pickr.jpg" primaryTags={["React-Native", "React.JS"]}/>
 						<Project name="Automatic Data Processing (ADP)" description={<span>Software Development Intern<br/>Peterborough, 2016</span>} img="./img/portfolio/adp.png" primaryTags={["Agile Scrum", "JavaScript", "Selenium"]} secondaryTags={["NodeJS"]}/>
 						<Project name="Mold.Agency" description={<span>Backend Web Developer<br/>Peterborough, 2017</span>} img="./img/portfolio/mold.png" primaryTags={["NodeJS", "JavaScript"]} secondaryTags={["MongoDB", "MySQL", "PHP"]}/>
 					</div>
