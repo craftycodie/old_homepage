@@ -1,5 +1,5 @@
 import React from 'react'
-import { apiHandler, showdownConverter } from '../../App'
+import { apiHandler, showdownConverter } from '../../routes'
 import ReactHtmlParser from 'react-html-parser'
 import { Link } from 'react-router-dom'
 import { getAllLoadedPosts } from './Blog'
