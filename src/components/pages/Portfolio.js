@@ -29,7 +29,7 @@ export default class Portfolio extends React.Component {
 				<div className="projectSection">
 					<h2>Group Projects</h2>
 					<div className="row">
-						<Project name="Supernova" description={<span>Halo themed solo and multiplayer PC game.<br/>In Development.</span>} img="./img/portfolio/supernova.png" primaryTags={["Software Engineering", "C#"]}/>
+						<Project name="Coral (Formerly Supernova)" description={<span><a style={{marginTop: 0}} href="https://twitter.com/coralfangame">Halo themed solo and multiplayer PC game.</a><br/>In Development.</span>} img="./img/portfolio/coral.jpg" primaryTags={["Software Engineering", "C#"]}/>
 						{/* <Project name="React Infinite Scroll Component" description="A smart component I tweaked tweaked to fix a bug I experienced." primaryTags={["JavaScript", "React.js"]}/> */}
 						<Project name="Undisclosed Projects" description="Additional projects I can't talk about yet :(" img="./img/portfolio/unknown.png" primaryTags={["C++", "x86 Assembly"]} secondaryTags={["Reverse Engineering", "C#"]}/>
 					</div>
@@ -37,7 +37,7 @@ export default class Portfolio extends React.Component {
 				<div className="projectSection">
 					<h2>Work Experience</h2>
 					<div className="row">
-						<Project name="Pickr" description={<span>Software Engineer<br/>Norwich, 2018</span>} img="./img/portfolio/pickr.jpg" primaryTags={["React-Native", "React.JS"]}/>
+						<Project name="Pickr" description={<span>Software Engineer<br/>Norwich, 2018</span>} img="./img/portfolio/pickr.jpg" primaryTags={["React-Native", "React.JS"]} secondaryTags={["Laravel"]}/>
 						<Project name="Automatic Data Processing (ADP)" description={<span>Software Development Intern<br/>Peterborough, 2016</span>} img="./img/portfolio/adp.png" primaryTags={["Agile Scrum", "JavaScript", "Selenium"]} secondaryTags={["NodeJS"]}/>
 						<Project name="Mold.Agency" description={<span>Backend Web Developer<br/>Peterborough, 2017</span>} img="./img/portfolio/mold.png" primaryTags={["NodeJS", "JavaScript"]} secondaryTags={["MongoDB", "MySQL", "PHP"]}/>
 					</div>
