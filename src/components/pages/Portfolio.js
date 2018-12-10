@@ -31,7 +31,7 @@ export default class Portfolio extends React.Component {
 					<div className="row">
 						<Project name="Coral (Formerly Supernova)" description={<span><a style={{marginTop: 0}} href="https://twitter.com/coralfangame">Halo themed solo and multiplayer PC game.</a><br/>In Development.</span>} img="./img/portfolio/coral.jpg" primaryTags={["Software Engineering", "C#"]}/>
 						{/* <Project name="React Infinite Scroll Component" description="A smart component I tweaked tweaked to fix a bug I experienced." primaryTags={["JavaScript", "React.js"]}/> */}
-						<Project name="Undisclosed Projects" description="Additional projects I can't talk about yet :(" img="./img/portfolio/unknown.png" primaryTags={["C++", "x86 Assembly"]} secondaryTags={["Reverse Engineering", "C#"]}/>
+						<Project name="Halo: Online 'ElDewrito'" description={<p><span>A restoration modification of the free to play pc shooter Halo: Online.</span><br/><a href="https://www.pcgamer.com/uk/halo-online-is-pure-nostalgia-for-shooter-fans-of-a-certain-age/">PCGamer Article >></a></p>} img="./img/portfolio/eldewrito.png" primaryTags={["C++", "x86 Assembly"]} secondaryTags={["JavaScript", "C#"]}/>
 					</div>
 				</div>
 				<div className="projectSection">
