@@ -21,7 +21,6 @@ export default class Portfolio extends React.Component {
 						<Project name="Halo: Online - Headhunter Proof of Concept" description="A research project, adding a gamemode to Halo: Online" img="./img/portfolio/headhunter.png" blogPost="5b171bc9e2243c001487ca7c" primaryTags={["C++", "x86 Assembly"]}/>
 						<Project name="Unity Modding" description="Modifications for Baldi's Basics in Education and Learning, and another unreleased game." blogPost="5b1c3bb52a54fd00143f9dd1" primaryTags={["MSIL (CIL)", "C#"]}/>
 						<Project name="Skyfall" description="A simple minecraft server plugin for void teleportation." primaryTags={["Java", "Maven"]}/>
-						{/* <Project name="Halo: Online Fixes" description="Many bug fixes for the now cancelled PC game Halo: Online" primaryTags={["C++", "x86 Assembly"]}/> */}
 
 						<Project name="Many More" description="Many research projects, game mods and other misc projects." img="./img/portfolio/more.png" primaryTags={["LUA"]}/>
 					</div>
@@ -31,7 +30,7 @@ export default class Portfolio extends React.Component {
 					<div className="row">
 						<Project name="Coral (Formerly Supernova)" description={<span><a style={{marginTop: 0}} href="https://twitter.com/coralfangame">Halo themed solo and multiplayer PC game.</a><br/>In Development.</span>} img="./img/portfolio/coral.jpg" primaryTags={["Software Engineering", "C#"]}/>
 						{/* <Project name="React Infinite Scroll Component" description="A smart component I tweaked tweaked to fix a bug I experienced." primaryTags={["JavaScript", "React.js"]}/> */}
-						<Project name="Halo: Online 'ElDewrito'" description={<p><span>A restoration modification of the free to play pc shooter Halo: Online.</span><br/><a href="https://www.pcgamer.com/uk/halo-online-is-pure-nostalgia-for-shooter-fans-of-a-certain-age/">PCGamer Article >></a></p>} img="./img/portfolio/eldewrito.png" primaryTags={["C++", "x86 Assembly"]} secondaryTags={["JavaScript", "C#"]}/>
+						<Project name="Halo: Online 'ElDewrito'" description="A restoration modification of the free to play pc shooter Halo: Online." img="./img/portfolio/eldewrito.png" primaryTags={["C++", "x86 Assembly"]} secondaryTags={["JavaScript", "C#"]} blogPost="5adef789bd597f00148a1d5d"/>
 					</div>
 				</div>
 				<div className="projectSection">
