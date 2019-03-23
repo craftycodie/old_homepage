@@ -1,11 +1,12 @@
 import React from 'react'
-import { apiHandler, showdownConverter } from '../../routes'
 import ReactHtmlParser from 'react-html-parser'
 import { Link } from 'react-router-dom'
-import { getAllLoadedPosts } from './Blog'
-import { reloadPosts } from '../pages/Blog'
+import { connect } from 'react-redux'
 
-export default class BlogPostEditor extends React.Component {
+import { clear, newPost, editPost } from '../actions/blogActions'
+import showdownConverter from '../utils/showdownConverter'
+
+class BlogPostEditor extends React.Component {
   constructor (props) {
     super(props)
 
@@ -35,22 +36,21 @@ export default class BlogPostEditor extends React.Component {
 
   submitPostData () {
     if (this.state.postID == null) {
-      apiHandler.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
-        reloadPosts()
+      this.props.newPost(this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
+        this.props.clear()
         this.props.history.push('/blog/post/' + postID)
       })
     } else {
-      apiHandler.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
-        reloadPosts()
+      this.props.editPost(this.state.postID, this.state.postTitle, this.state.postBody, this.state.stickyPost, this.state.draftPost, postID => {
+        this.props.clear()
         this.props.history.push('/blog/post/' + postID)
       })
     }
   }
 
   getPostData () {
-    getAllLoadedPosts().forEach(loadedPost => {
+    this.props.blog.posts.forEach(loadedPost => {
       if (loadedPost.props.blogPost._id === this.props.match.params.postID) {
-        console.log(loadedPost.props.blogPost)
         this.setState({
           loadedPost: true,
           postTitle: loadedPost.props.blogPost.title,
@@ -61,9 +61,9 @@ export default class BlogPostEditor extends React.Component {
       }
     })
 
-    apiHandler.blogPost(this.props.match.params.postID,
+    this.props.getBlogPost(this.props.match.params.postID,
       j => {
-        this.setState({blogPost: j.data})
+        this.setState({ blogPost: j.data })
         setTimeout(() => {
           this.setState({
             loadedPost: true,
@@ -75,7 +75,7 @@ export default class BlogPostEditor extends React.Component {
         }, 500)
       },
       () => {
-        this.setState({errorCount: this.state.errorCount + 1})
+        this.setState({ errorCount: this.state.errorCount + 1 })
       })
   }
 
@@ -133,3 +133,13 @@ export default class BlogPostEditor extends React.Component {
     )
   }
 }
+
+const mapStateToProps = ({ blog }) => ({ blog })
+
+const mapDispatchToProps = dispatch => ({
+  clear: () => dispatch(clear()),
+  newPost: (title, body, sticky, draft) => dispatch(newPost(title, body, sticky, draft)),
+  editPost: (postId, title, body, sticky, draft) => dispatch(editPost(postId, title, body, sticky, draft))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogPostEditor)

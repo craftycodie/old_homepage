@@ -1,5 +1,5 @@
 import React from 'react'
-import Project from './portfolio/Project'
+import Project from '../components/Project'
 // import { Link } from 'react-router-dom';
 
 export default class Portfolio extends React.Component {

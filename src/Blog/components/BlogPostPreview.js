@@ -4,8 +4,7 @@ import ReactHtmlParser from 'react-html-parser'
 import moment from 'moment'
 import { connect } from 'react-redux'
 
-import { apiHandler, showdownConverter } from '../../App'
-import BlogPostPreview from '../screens/BlogPost';
+import showdownConverter from '../utils/showdownConverter'
 
 class BlogPostPreview extends React.Component {
   render () {

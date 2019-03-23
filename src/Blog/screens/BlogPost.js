@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getAllLoadedPosts } from '../Blog'
 import ReactHtmlParser from 'react-html-parser'
-import { apiHandler, showdownConverter } from '../../App'
+import { connect } from 'react-redux'
+
+import showdownConverter from '../utils/showdownConverter'
+import { getBlogPost } from '../actions/blogActions'
 
 function getOrdinalNum (n) {
   return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '')
 }
 
-export default class BlogPost extends React.Component {
+class BlogPost extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -19,19 +21,19 @@ export default class BlogPost extends React.Component {
   }
 
   getPostData () {
-    getAllLoadedPosts().forEach(loadedPost => {
+    this.props.blog.posts.forEach(loadedPost => {
       if (loadedPost.props.blogPost._id === this.props.match.params.postID) {
-        this.setState({blogPost: loadedPost.props.blogPost})
+        this.setState({ blogPost: loadedPost.props.blogPost })
       }
-    })
 
-    apiHandler.blogPost(this.props.match.params.postID,
-      j => {
-        this.setState({blogPost: j.data})
-      },
-      () => {
-        this.setState({errorCount: this.state.errorCount + 1})
-      })
+      this.props.getBlogPost(this.props.match.params.postID,
+        j => {
+          this.setState({ blogPost: j.data })
+        },
+        () => {
+          this.setState({ errorCount: this.state.errorCount + 1 })
+        })
+    })
   }
 
   componentDidUpdate () {
@@ -73,7 +75,7 @@ export default class BlogPost extends React.Component {
             <div id='blogPost' className='centerMargins'>
               <h2>Loading...</h2>
               <p>An error occured while loading the blog post.
-              <br />
+                <br />
                 Trying {3 - this.state.errorCount} more times...
               </p>
             </div>
@@ -104,7 +106,7 @@ export default class BlogPost extends React.Component {
       <div className='page'>
         <div id='blogPost' className='centerMargins'>
           <h1 className='postTitle'>{this.state.blogPost.title}</h1>
-          {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
+          {this.props.auth.authenticated ? <small>{this.state.blogPost._id}</small> : null}
           <hr />
           <div className='postBody'>
             {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
@@ -119,3 +121,11 @@ export default class BlogPost extends React.Component {
     )
   }
 }
+
+const mapStateToProps = ({ blog, auth }) => ({ blog, auth })
+
+const mapDispatchToProps = dispatch => ({
+  getBlogPost: (postId) => dispatch(getBlogPost(postId))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogPost)

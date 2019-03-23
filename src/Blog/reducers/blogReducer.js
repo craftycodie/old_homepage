@@ -3,11 +3,8 @@ import { merge as mergeArrays } from '../../Core/utils/arrayUtils'
 
 const initialState = {
   gotDraftPosts: false,
-  failedToGetDraftPosts: false,
   gotStickyPosts: false,
-  failedToGetStickyPosts: false,
   gotAllRecentPosts: false,
-  failedToGetRecentPosts: false,
   recentPostsCount: 0,
   posts: []
 }

@@ -12,7 +12,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 export const history = createBrowserHistory()
 
 const appReducers = combineReducers({
-  authReducer, blogReducer, userReducer
+  auth: authReducer,
+  blog: blogReducer,
+  history
 })
 
 const reducers = (state, action) => {

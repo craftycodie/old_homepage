@@ -1,9 +1,11 @@
-import React from 'react'
-import { apiHandler, currentLocation } from '../../App'
-import { reloadPosts } from '../../components/pages/Blog'
+import React, { Alert } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export default class AdminBar extends React.Component {
+import { logout } from '../../Authentication/actions/authActions'
+import { clear, deletePost } from '../../Blog/actions/blogActions'
+
+class AdminBar extends React.Component {
   constructor (props) {
     super(props)
 
@@ -20,39 +22,43 @@ export default class AdminBar extends React.Component {
 
   getBlogPostID () {
     var result = ''
-    console.log(currentLocation.pathname)
-    if (!currentLocation.pathname.includes('/blog/post')) { result = '' } else { result = currentLocation.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1) }
+    if (!this.props.location.pathname.includes('/blog/post')) {
+      result = ''
+    } else {
+      result = this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1)
+    }
 
     if (result === this.state.blogPostID) { return }
 
-    this.setState({blogPostID: result})
+    this.setState({ blogPostID: result })
   }
 
   logoutSubmit () {
-    apiHandler.logoutUser()
+    this.props.logout()
   }
 
   deletePostSubmit () {
-    if (this.state.blogPostID === '') { alert('Error deleting post, no post id found.') }
+    if (this.state.blogPostID === '') { Alert.alert('Error deleting post, no post id found.') }
 
     console.log(this.state.blogPostID)
 
-    apiHandler.deletePost(this.state.blogPostID, () => {
-      reloadPosts()
+    this.post.deletePost(this.state.blogPostID, () => {
+      this.props.clear()
       this.props.history.push('/blog')
     })
   }
 
   editPostSubmit () {
-    if (this.state.blogPostID === '') { alert('Error editing post, no post id found.') }
+    if (this.state.blogPostID === '') { Alert.alert('Error editing post, no post id found.') }
 
     this.props.history.push('/blog/post/' + this.state.blogPostID + '/edit')
   }
 
   render () {
     this.getBlogPostID()
+    console.log(this.props)
 
-    if (apiHandler.isUserLogged()) {
+    if (this.props.auth.authenticated) {
       return (
         <div id='adminBar'>
           <p>Welcome back <b>Administrator</b>.</p>
@@ -66,3 +72,13 @@ export default class AdminBar extends React.Component {
     }
   }
 }
+
+const mapStateToProps = ({ blog, auth, history }) => ({ blog, auth, history })
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout()),
+  clear: () => dispatch(clear()),
+  deletePost: (postId) => dispatch(deletePost(postId))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminBar)

@@ -1,8 +1,8 @@
 import { Component } from 'react'
-import { apiHandler } from '../../App'
+import { connect } from 'react-redux'
 
 var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13]
-export default class Konami extends Component {
+class Konami extends Component {
   constructor (props) {
     super(props)
 
@@ -58,10 +58,14 @@ export default class Konami extends Component {
   }
 
   easterEgg () {
-    if (!apiHandler.isUserLogged()) { this.props.history.push('/login') }
+    if (!this.props.auth.authorized) { this.props.history.push('/login') }
   }
 
   render () {
     return null
   }
 }
+
+const mapStateToProps = ({ auth }) => ({ auth })
+
+export default connect(mapStateToProps)(Konami)

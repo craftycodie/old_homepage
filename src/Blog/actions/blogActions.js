@@ -1,11 +1,12 @@
 import apiNetworking from '../../Core/utils/apiNetworking'
 
 export const ACTION_GET_POSTS = 'ACTION_GET_POSTS'
+export const ACTION_GET_POSTS_FAILED = 'ACTION_GET_POSTS_FAILED'
 export const ACTION_CLEAR_POSTS = 'ACTION_CLEAR_POSTS'
 export const ACTION_NEW_POST = 'ACTION_NEW_POST'
 export const ACTION_EDIT_POST = 'ACTION_EDIT_POST'
 export const ACTION_DELETE_POST = 'ACTION_DELETE_POST'
-export const ACTION_GOT_ALL_POSTS = 'ACTION_GOT_ALL_POSTS'
+export const ACTION_GOT_ALL_RECENT_POSTS = 'ACTION_GOT_ALL_RECENT_POSTS'
 
 export const getStickyPosts = () => {
   return async dispatch => {
@@ -15,7 +16,9 @@ export const getStickyPosts = () => {
         const stickyPostsRes = await stickyPostsRequest()
         await dispatch({
           type: ACTION_GET_POSTS,
-          posts: stickyPostsRes.data.data
+          payload: {
+            posts: stickyPostsRes.data.data
+          }
         })
         return
       } catch (e) {
@@ -34,7 +37,9 @@ export const getDraftPosts = () => {
         const draftPostsRes = await draftPostsRequest()
         await dispatch({
           type: ACTION_GET_POSTS,
-          posts: draftPostsRes.data.data
+          payload: {
+            posts: draftPostsRes.data.data
+          }
         })
         return
       } catch (e) {
@@ -55,7 +60,32 @@ export const getRecentPosts = (at, count) => {
         })
         await dispatch({
           type: ACTION_GET_POSTS,
-          posts: recentPostsRes.data.data
+          payload: {
+            posts: recentPostsRes.data.data
+          }
+        })
+        return
+      } catch (e) {
+        err = e
+      }
+    }
+    throw err
+  }
+}
+
+export const getMoreRecentPosts = () => {
+  return async (dispatch, getState) => {
+    var err
+    for (let attempts = 3; attempts > 0; attempts--) {
+      try {
+        const recentPostsRes = await recentPostsRequest({
+          at: this.props.blog.posts.filter(post => { return !post.sticky && !post.draft }).length, count: 20
+        })
+        await dispatch({
+          type: ACTION_GET_POSTS,
+          payload: {
+            posts: recentPostsRes.data.data
+          }
         })
         return
       } catch (e) {
@@ -72,7 +102,9 @@ export const deletePost = (postId) => {
     return async dispatch => {
       return dispatch({
         type: ACTION_DELETE_POST,
-        postId
+        payload: {
+          postId
+        }
       })
     }
   }
@@ -96,16 +128,20 @@ export const editPost = (postId, title, body, sticky, draft) => {
     })
     await dispatch({
       type: ACTION_DELETE_POST,
-      postId
+      payload: {
+        postId
+      }
     })
     return dispatch({
       type: ACTION_NEW_POST,
-      post: {
-        _id: postId,
-        title,
-        body,
-        sticky,
-        draft
+      payload: {
+        post: {
+          _id: postId,
+          title,
+          body,
+          sticky,
+          draft
+        }
       }
     })
   }
@@ -121,16 +157,24 @@ export const newPost = (title, body, sticky, draft) => {
     })
     await dispatch({
       type: ACTION_NEW_POST,
-      post: {
-        _id: postId,
-        title,
-        body,
-        sticky,
-        draft
+      payload: {
+        post: {
+          _id: postId,
+          title,
+          body,
+          sticky,
+          draft
+        }
       }
     })
 
     return postId
+  }
+}
+
+export const getBlogPost = (postId) => {
+  return async dispatch => {
+    return blogPostRequest(postId)
   }
 }
 
@@ -147,7 +191,7 @@ function draftPostsRequest () {
 }
 
 function newPostRequest (params) {
-  return apiNetworking.post('api/blog/post/mew', params)
+  return apiNetworking.post('api/blog/post/new', params)
 }
 
 function editPostRequest (postId, params) {
@@ -156,4 +200,8 @@ function editPostRequest (postId, params) {
 
 function deletePostRequest (postId) {
   return apiNetworking.delete(`api/blog/post/${postId}`)
+}
+
+function blogPostRequest (postId) {
+  return apiNetworking.get(`api/blog/post/${postId}`)
 }

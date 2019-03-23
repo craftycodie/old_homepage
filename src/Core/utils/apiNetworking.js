@@ -1,14 +1,12 @@
 import axios from 'axios'
-import DeviceInfo from 'react-native-device-info'
+// import { Alert } from 'React'
 
 import { logout } from '../../Authentication/actions/authActions'
 
-import { Token } from './messaging'
-import showError from '../utils/showError'
 import store from '../store'
 
 const apiNetworking = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://alexnewark.co.uk/',
   headers: {
     Accept: 'application/json'
   }
@@ -19,8 +17,8 @@ const apiNetworking = axios.create({
  */
 apiNetworking.interceptors.request.use(
   request => {
-      console.log('WEB REQUEST')
-      console.log(request)
+    console.log('WEB REQUEST')
+    console.log(request)
 
     if (store.getState().auth.token) {
       request.headers['Authorization'] = 'JWT ' + store.getState().auth.token
@@ -35,17 +33,16 @@ apiNetworking.interceptors.request.use(
  */
 apiNetworking.interceptors.response.use(
   response => {
-
-      console.log('WEB RESPONSE')
-      console.log(response)
+    console.log('WEB RESPONSE')
+    console.log(response)
 
     return response
   },
   error => {
     const response = error.response
 
-      console.log('WEB ERROR')
-      console.log(response)
+    console.log('WEB ERROR')
+    console.log(response)
 
     if (response && response.status !== 401) {
       if (response.status === 500) {
@@ -56,12 +53,11 @@ apiNetworking.interceptors.response.use(
         return Promise.reject(new Error(error))
       }
     } else {
-      if (response.status === 401) {
+      if (response && response.status === 401) {
+        store.dispatch(logout())
+        // Alert.alert('Your session has expired. Please login again.')
         return Promise.reject(new Error(response.data.message))
       }
-
-      store.dispatch(logout())
-      alert('Your session has expired. Please login again.')
 
       return Promise.reject(new Error(error))
     }

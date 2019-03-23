@@ -46,18 +46,17 @@ const childFactoryCreator = (classNames) =>
     })
   )
 
-export default class componentName extends Component {
+export default class Routes extends Component {
   render () {
-    currentLocation = this.props.location
     return (
       <TransitionGroup id='pageContainer' childFactory={childFactoryCreator(getAnimationClassName(this.props.location))}>
         <CSSTransition key={this.props.location.key} timeout={500}>
           <Switch location={this.props.location}>
 
-            <AuthenticationRoutes />
-            <AboutRoutes />
-            <BlogRoutes />
-            <PortfolioRoutes />
+            <Route exact path='/login' component={AuthenticationRoutes} />
+            <Route exact path='/about' component={AboutRoutes} />
+            <Route exact path='/blog' component={BlogRoutes} />
+            <Route exact path='/' component={PortfolioRoutes} />
 
             <Route path='*' component={Error404} />
           </Switch>
