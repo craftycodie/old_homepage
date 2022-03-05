@@ -1,29 +1,32 @@
 {
   "name": "homepage",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^3.2.1",
     "react": "^16.2.0",
-    "react-addons-css-transition-group": "^15.6.2",
-    "react-cookie": "^2.1.2",
-    "react-cookies": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-html-parser": "^2.0.2",
-    "react-infinite": "^0.12.1",
-    "react-infinite-scroll-component": "^3.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "react-transition-group": "^2.2.1",
-    "react-transition-group-plus": "^0.5.2",
-    "showdown": "^1.8.6",
-    "superagent": "^3.8.2"
+    "react-scripts": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

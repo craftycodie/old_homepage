@@ -105,6 +105,7 @@ header h1{
   padding-top: 2vh;
   margin-bottom: 0vh;
   font-size: 4vh;
+  color: white
 }
 
 
@@ -263,7 +264,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  font-family: Menlo, Monaco, monospace, "Consolas", "Courier New"
+  /* font-family: Menlo, Monaco, monospace, "Consolas", "Courier New" */
 }
 
 header p {
@@ -333,12 +334,13 @@ nav {
   position: relative;
 }
 
-.portfolioProject .right img {
+.portfolioProject img {
+  min-width: 100%;
   max-width: 100%;
   max-height: 100%;
-  width: auto;
+  /* width: auto;
   height: auto;
-  position: absolute;
+  position: absolute; */
   top: 0;
   right: 0;
   bottom: 0;

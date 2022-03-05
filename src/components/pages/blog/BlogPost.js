@@ -1,12 +1,5 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-import { getAllLoadedPosts } from "../Blog"
-import ReactHtmlParser from 'react-html-parser';
-import { apiHandler, showdownConverter } from "../../../App";
-
-function getOrdinalNum(n) {
-  return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
-}
 
 export default class BlogPostPreview extends React.Component {
   
@@ -16,37 +9,6 @@ export default class BlogPostPreview extends React.Component {
       blogPost: null,
       errorCount: 0
     };
-    this.getPostData = this.getPostData.bind(this);
-  }
-
-  getPostData() {
-    getAllLoadedPosts().forEach(loadedPost => {
-      if(loadedPost.props.blogPost._id === this.props.match.params.postID)
-      {
-        this.setState({blogPost: loadedPost.props.blogPost});
-        return;
-      }
-    });
-
-    apiHandler.blogPost(this.props.match.params.postID,
-    j => {
-      this.setState({blogPost: j.data});
-    },
-    () => {
-      this.setState({errorCount: this.state.errorCount + 1})
-    });
-  }
-
-  componentDidUpdate()
-  {
-    window.hljs.initHighlighting.called = false;
-    window.hljs.initHighlighting();
-  }
-
-  componentDidMount()
-  {
-    window.hljs.initHighlighting.called = false;
-    window.hljs.initHighlighting();
   }
 
   render() {
@@ -98,16 +60,6 @@ export default class BlogPostPreview extends React.Component {
       );
     }
 
-    var createdDate = new Date(this.state.blogPost.created);
-    var createdString = 
-      createdDate.toLocaleDateString(navigator.userLanguage, { weekday: 'long' }) +
-      ", " +
-      getOrdinalNum(createdDate.getDate()) +
-      " " +
-      createdDate.toLocaleDateString(navigator.userLanguage, { month: 'long' }) +
-      " " +
-      createdDate.getFullYear();
-
     return (    
       <div className="page">
         <div id="blogPost" className="centerMargins">
@@ -115,7 +67,7 @@ export default class BlogPostPreview extends React.Component {
           {apiHandler.isUserLogged() ? <small>{this.state.blogPost._id}</small> : null}
           <hr/>
           <div className="postBody">
-            {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))}
+            {/* {ReactHtmlParser(showdownConverter.makeHtml(this.state.blogPost.body))} */}
           </div>
           <hr/>
           <Link to={"/blog"}>&lt;&lt; Back to Blog</Link>

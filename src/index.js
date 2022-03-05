@@ -5,10 +5,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { withRouter } from 'react-router';
-import { CookiesProvider, withCookies } from 'react-cookie';
 import { BrowserRouter } from 'react-router-dom';
 
-const ProppedApp = withCookies(withRouter(App));
+const ProppedApp = withRouter(App);
 
-ReactDOM.render(<CookiesProvider><BrowserRouter><ProppedApp /></BrowserRouter></CookiesProvider>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><ProppedApp /></BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
